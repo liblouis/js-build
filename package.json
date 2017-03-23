@@ -1,12 +1,12 @@
 {
-	"name": "liblouis-js-build",
-	"description": "precompiled builds of liblouis for js",
+	"name": "liblouis-build",
+	"description": "pre-compiled builds of liblouis for js",
 	"author": "Reiner Dolp",
 	"keywords": [ "braille", "transcription", "emscripten", "liblouis", "liblouis-js"],
-	"version": "0.0.0",
+	"version": "3.0.0",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/liblouis/js-build.git"
 	},
-	"main": "./no-tables.js"
+	"main": "./build-no-tables.js"
 }
