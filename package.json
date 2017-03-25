@@ -14,5 +14,5 @@
 	"devDependencies": {
 		"liblouis-js": "*"
 	},
-	"main": "./build-no-tables.js"
+	"main": "./build-no-tables-utf16.js"
 }
