@@ -52747,4 +52747,4 @@ this.liblouisBuilds[version].push(Module);
 
   return liblouisBuild;
 };
-liblouisBuild();
+liblouisBuild = liblouisBuild();
