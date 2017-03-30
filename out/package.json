@@ -1,0 +1,24 @@
+{
+  "name": "liblouis-build",
+  "description": "pre-compiled builds of liblouis for js",
+  "author": "Reiner Dolp",
+  "keywords": [
+    "braille",
+    "transcription",
+    "emscripten",
+    "liblouis",
+    "liblouis-js"
+  ],
+  "version": "5.4.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liblouis/js-build.git"
+  },
+  "scripts": {
+    "test": "node -e \"require('liblouis/testrunner/main.js')\""
+  },
+  "devDependencies": {
+    "liblouis": "github:liblouis/liblouis-js"
+  },
+  "main": "./build-no-tables-utf16.js"
+}
