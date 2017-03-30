@@ -9,7 +9,7 @@
     "liblouis",
     "liblouis-js"
   ],
-  "version": "0.0.0-localtest",
+  "version": "0.0.0-test.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/liblouis/js-build.git"
