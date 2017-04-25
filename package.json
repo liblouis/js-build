@@ -15,7 +15,7 @@
     "url": "git://github.com/liblouis/js-build.git"
   },
   "scripts": {
-    "test": "node -e \"require('liblouis/testrunner/main.js')\""
+    "test": "node \"require('liblouis/testrunner/all.js')\""
   },
   "devDependencies": {
     "liblouis": "github:liblouis/liblouis-js"
