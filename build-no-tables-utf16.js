@@ -7125,17 +7125,29 @@ function _resolveSubtable($0,$1,$2) {
 function __lou_resolveTable($0,$1) {
  $0 = $0|0;
  $1 = $1|0;
- var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, label = 0, sp = 0;
+ var $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $2 = $0;
  $3 = $1;
- $4 = HEAP32[113]|0;
- $5 = $2;
- $6 = $3;
- $7 = (FUNCTION_TABLE_iii[$4 & 31]($5,$6)|0);
- $8 = (_copyStringArray($7)|0);
- STACKTOP = sp;return ($8|0);
+ $6 = HEAP32[113]|0;
+ $7 = $2;
+ $8 = $3;
+ $9 = (FUNCTION_TABLE_iii[$6 & 31]($7,$8)|0);
+ $4 = $9;
+ $10 = $4;
+ $11 = (_copyStringArray($10)|0);
+ $5 = $11;
+ $12 = HEAP32[113]|0;
+ $13 = ($12|0)==(4|0);
+ if (!($13)) {
+  $15 = $5;
+  STACKTOP = sp;return ($15|0);
+ }
+ $14 = $4;
+ _free_tablefiles($14);
+ $15 = $5;
+ STACKTOP = sp;return ($15|0);
 }
 function _copyStringArray($0) {
  $0 = $0|0;
@@ -7195,6 +7207,37 @@ function _copyStringArray($0) {
  $1 = $31;
  $32 = $1;
  STACKTOP = sp;return ($32|0);
+}
+function _free_tablefiles($0) {
+ $0 = $0|0;
+ var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $3 = $1;
+ $4 = ($3|0)!=(0|0);
+ if (!($4)) {
+  STACKTOP = sp;return;
+ }
+ $5 = $1;
+ $2 = $5;
+ while(1) {
+  $6 = $2;
+  $7 = HEAP32[$6>>2]|0;
+  $8 = ($7|0)!=(0|0);
+  if (!($8)) {
+   break;
+  }
+  $9 = $2;
+  $10 = HEAP32[$9>>2]|0;
+  _free($10);
+  $11 = $2;
+  $12 = ((($11)) + 4|0);
+  $2 = $12;
+ }
+ $13 = $1;
+ _free($13);
+ STACKTOP = sp;return;
 }
 function _lou_registerTableResolver($0) {
  $0 = $0|0;
@@ -8674,37 +8717,6 @@ function _compileFile($0,$1,$2,$3,$4,$5,$6,$7) {
  $8 = 1;
  $42 = $8;
  STACKTOP = sp;return ($42|0);
-}
-function _free_tablefiles($0) {
- $0 = $0|0;
- var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
- sp = STACKTOP;
- STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
- $1 = $0;
- $3 = $1;
- $4 = ($3|0)!=(0|0);
- if (!($4)) {
-  STACKTOP = sp;return;
- }
- $5 = $1;
- $2 = $5;
- while(1) {
-  $6 = $2;
-  $7 = HEAP32[$6>>2]|0;
-  $8 = ($7|0)!=(0|0);
-  if (!($8)) {
-   break;
-  }
-  $9 = $2;
-  $10 = HEAP32[$9>>2]|0;
-  _free($10);
-  $11 = $2;
-  $12 = ((($11)) + 4|0);
-  $2 = $12;
- }
- $13 = $1;
- _free($13);
- STACKTOP = sp;return;
 }
 function _deallocateCharacterClasses($0) {
  $0 = $0|0;
