@@ -12552,7 +12552,7 @@ function _compileHyphenation($0,$1,$2,$3) {
  STACKTOP = STACKTOP + 10320|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(10320|0);
  $8 = sp + 4168|0;
  $11 = sp + 70|0;
- $12 = sp + 8272|0;
+ $12 = sp + 8266|0;
  $21 = sp + 8|0;
  $22 = sp;
  $4 = $0;

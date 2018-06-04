@@ -12457,7 +12457,7 @@ function _compileHyphenation($0,$1,$2,$3) {
  var $77 = 0, $78 = 0, $79 = 0, $8 = 0, $80 = 0, $81 = 0, $82 = 0, $83 = 0, $84 = 0, $85 = 0, $86 = 0, $87 = 0, $88 = 0, $89 = 0, $9 = 0, $90 = 0, $91 = 0, $92 = 0, $93 = 0, $94 = 0;
  var $95 = 0, $96 = 0, $97 = 0, $98 = 0, $99 = 0, label = 0, sp = 0;
  sp = STACKTOP;
- STACKTOP = STACKTOP + 18512|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(18512|0);
+ STACKTOP = STACKTOP + 18528|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(18528|0);
  $8 = sp + 8252|0;
  $11 = sp + 48|0;
  $12 = sp + 16464|0;
