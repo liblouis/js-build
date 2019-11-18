@@ -51690,6 +51690,20 @@ function __lou_logWidecharBuf($0,$1,$2,$3) {
  _free($83);
  STACKTOP = sp;return;
 }
+function _defaultLogCallback($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $2 = 0, $3 = 0, $4 = 0, $vararg_buffer = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $vararg_buffer = sp;
+ $2 = $0;
+ $3 = $1;
+ $4 = $3;
+ HEAP32[$vararg_buffer>>2] = $4;
+ _lou_logPrint(7668,$vararg_buffer);
+ STACKTOP = sp;return;
+}
 function _lou_registerLogCallback($0) {
  $0 = $0|0;
  var $1 = 0, $2 = 0, $3 = 0, $4 = 0, label = 0, sp = 0;
@@ -51880,20 +51894,6 @@ function _lou_logEnd() {
  }
  HEAP32[3791] = 0;
  return;
-}
-function _defaultLogCallback($0,$1) {
- $0 = $0|0;
- $1 = $1|0;
- var $2 = 0, $3 = 0, $4 = 0, $vararg_buffer = 0, label = 0, sp = 0;
- sp = STACKTOP;
- STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
- $vararg_buffer = sp;
- $2 = $0;
- $3 = $1;
- $4 = $3;
- HEAP32[$vararg_buffer>>2] = $4;
- _lou_logPrint(7668,$vararg_buffer);
- STACKTOP = sp;return;
 }
 function __lou_stringHash($0,$1,$2) {
  $0 = $0|0;
@@ -62021,7 +62021,7 @@ var FUNCTION_TABLE_iii = [b3,b3,jsCall_iii_0,b3,__lou_defaultTableResolver,b3,b3
 var FUNCTION_TABLE_vi = [b4,b4,jsCall_vi_0,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,_free,b4,b4,_feature_free,b4,_cleanup,_cleanup_340,b4,b4,b4,b4,b4,b4,b4,b4,b4
 ,b4,b4,b4];
 
-  return { __lou_getALine: __lou_getALine, __lou_logMessage: __lou_logMessage, __lou_findOpcodeNumber: __lou_findOpcodeNumber, _lou_version: _lou_version, _bitshift64Lshr: _bitshift64Lshr, _lou_getTableInfo: _lou_getTableInfo, __lou_isValidMode: __lou_isValidMode, __lou_getTablePath: __lou_getTablePath, _lou_indexTables: _lou_indexTables, __lou_getDotsForChar: __lou_getDotsForChar, _lou_setLogLevel: _lou_setLogLevel, __lou_charHash: __lou_charHash, _lou_logFile: _lou_logFile, _bitshift64Shl: _bitshift64Shl, ___udivmoddi4: ___udivmoddi4, _lou_translate: _lou_translate, _lou_getEmphClasses: _lou_getEmphClasses, __lou_stringHash: __lou_stringHash, _fflush: _fflush, _lou_logPrint: _lou_logPrint, __lou_showString: __lou_showString, __lou_pattern_compile: __lou_pattern_compile, __lou_showDots: __lou_showDots, _memset: _memset, _sbrk: _sbrk, __lou_allocMem: __lou_allocMem, _memcpy: _memcpy, _lou_getDataPath: _lou_getDataPath, _lou_translatePrehyphenated: _lou_translatePrehyphenated, _lou_free: _lou_free, __lou_defaultTableResolver: __lou_defaultTableResolver, __lou_showAttributes: __lou_showAttributes, __lou_resolveTable: __lou_resolveTable, __lou_handlePassVariableAction: __lou_handlePassVariableAction, ___uremdi3: ___uremdi3, _lou_getTypeformForEmphClass: _lou_getTypeformForEmphClass, _lou_setDataPath: _lou_setDataPath, _i64Subtract: _i64Subtract, _lou_findTables: _lou_findTables, _lou_backTranslateString: _lou_backTranslateString, _lou_registerLogCallback: _lou_registerLogCallback, _lou_backTranslate: _lou_backTranslate, _i64Add: _i64Add, __lou_handlePassVariableTest: __lou_handlePassVariableTest, __lou_getCharFromDots: __lou_getCharFromDots, _pthread_self: _pthread_self, __lou_getCurrentDisplayTable: __lou_getCurrentDisplayTable, _lou_findTable: _lou_findTable, __lou_translateWithTracing: __lou_translateWithTracing, __lou_pattern_check: __lou_pattern_check, __lou_charToFallbackDots: __lou_charToFallbackDots, _lou_translateString: _lou_translateString, _lou_charSize: _lou_charSize, __lou_findOpcodeName: __lou_findOpcodeName, __lou_unknownDots: __lou_unknownDots, __lou_extParseDots: __lou_extParseDots, ___udivdi3: ___udivdi3, ___errno_location: ___errno_location, _lou_checkTable: _lou_checkTable, __lou_outOfMemory: __lou_outOfMemory, __lou_backTranslateWithTracing: __lou_backTranslateWithTracing, _lou_compileString: _lou_compileString, __lou_logWidecharBuf: __lou_logWidecharBuf, _lou_charToDots: _lou_charToDots, _memmove: _memmove, _lou_listTables: _lou_listTables, _llvm_cttz_i32: _llvm_cttz_i32, _malloc: _malloc, __lou_resetPassVariables: __lou_resetPassVariables, _lou_getTable: _lou_getTable, _free: _free, __lou_extParseChars: __lou_extParseChars, _lou_hyphenate: _lou_hyphenate, _lou_registerTableResolver: _lou_registerTableResolver, _lou_readCharFromFile: _lou_readCharFromFile, _lou_dotsToChar: _lou_dotsToChar, _lou_logEnd: _lou_logEnd, __lou_pattern_reverse: __lou_pattern_reverse, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_vii: dynCall_vii, dynCall_iii: dynCall_iii, dynCall_vi: dynCall_vi };
+  return { __lou_getALine: __lou_getALine, __lou_logMessage: __lou_logMessage, __lou_findOpcodeNumber: __lou_findOpcodeNumber, _lou_version: _lou_version, _bitshift64Lshr: _bitshift64Lshr, _lou_getTableInfo: _lou_getTableInfo, __lou_isValidMode: __lou_isValidMode, __lou_getTablePath: __lou_getTablePath, _lou_indexTables: _lou_indexTables, __lou_getDotsForChar: __lou_getDotsForChar, _lou_setLogLevel: _lou_setLogLevel, _sbrk: _sbrk, __lou_charHash: __lou_charHash, _lou_logFile: _lou_logFile, _bitshift64Shl: _bitshift64Shl, ___udivmoddi4: ___udivmoddi4, _lou_translate: _lou_translate, _lou_getEmphClasses: _lou_getEmphClasses, __lou_stringHash: __lou_stringHash, _fflush: _fflush, _lou_logPrint: _lou_logPrint, __lou_showString: __lou_showString, __lou_pattern_compile: __lou_pattern_compile, __lou_showDots: __lou_showDots, _memset: _memset, _llvm_cttz_i32: _llvm_cttz_i32, __lou_allocMem: __lou_allocMem, _memcpy: _memcpy, _lou_getDataPath: _lou_getDataPath, _lou_translatePrehyphenated: _lou_translatePrehyphenated, _lou_free: _lou_free, __lou_defaultTableResolver: __lou_defaultTableResolver, __lou_showAttributes: __lou_showAttributes, __lou_resolveTable: __lou_resolveTable, __lou_handlePassVariableAction: __lou_handlePassVariableAction, ___uremdi3: ___uremdi3, _lou_getTypeformForEmphClass: _lou_getTypeformForEmphClass, _lou_setDataPath: _lou_setDataPath, _i64Subtract: _i64Subtract, _lou_findTables: _lou_findTables, _lou_backTranslateString: _lou_backTranslateString, _lou_registerLogCallback: _lou_registerLogCallback, _lou_backTranslate: _lou_backTranslate, _i64Add: _i64Add, __lou_handlePassVariableTest: __lou_handlePassVariableTest, __lou_getCharFromDots: __lou_getCharFromDots, _pthread_self: _pthread_self, __lou_getCurrentDisplayTable: __lou_getCurrentDisplayTable, _lou_findTable: _lou_findTable, __lou_translateWithTracing: __lou_translateWithTracing, __lou_pattern_check: __lou_pattern_check, __lou_charToFallbackDots: __lou_charToFallbackDots, _lou_translateString: _lou_translateString, _lou_charSize: _lou_charSize, __lou_findOpcodeName: __lou_findOpcodeName, __lou_unknownDots: __lou_unknownDots, __lou_extParseDots: __lou_extParseDots, ___udivdi3: ___udivdi3, ___errno_location: ___errno_location, _lou_checkTable: _lou_checkTable, __lou_outOfMemory: __lou_outOfMemory, __lou_backTranslateWithTracing: __lou_backTranslateWithTracing, _lou_compileString: _lou_compileString, __lou_logWidecharBuf: __lou_logWidecharBuf, _lou_charToDots: _lou_charToDots, _memmove: _memmove, _lou_listTables: _lou_listTables, _defaultLogCallback: _defaultLogCallback, _malloc: _malloc, __lou_resetPassVariables: __lou_resetPassVariables, _lou_getTable: _lou_getTable, _free: _free, __lou_extParseChars: __lou_extParseChars, _lou_hyphenate: _lou_hyphenate, _lou_registerTableResolver: _lou_registerTableResolver, _lou_readCharFromFile: _lou_readCharFromFile, _lou_dotsToChar: _lou_dotsToChar, _lou_logEnd: _lou_logEnd, __lou_pattern_reverse: __lou_pattern_reverse, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_vii: dynCall_vii, dynCall_iii: dynCall_iii, dynCall_vi: dynCall_vi };
 })
 // EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -62056,10 +62056,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__bitshift64Lshr.apply(null, arguments);
 };
 
-var real____udivdi3 = asm["___udivdi3"]; asm["___udivdi3"] = function() {
+var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real____udivdi3.apply(null, arguments);
+return real__llvm_cttz_i32.apply(null, arguments);
 };
 
 var real___lou_isValidMode = asm["__lou_isValidMode"]; asm["__lou_isValidMode"] = function() {
@@ -62344,10 +62344,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real___lou_extParseDots.apply(null, arguments);
 };
 
-var real__lou_registerTableResolver = asm["_lou_registerTableResolver"]; asm["_lou_registerTableResolver"] = function() {
+var real____udivdi3 = asm["___udivdi3"]; asm["___udivdi3"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_registerTableResolver.apply(null, arguments);
+return real____udivdi3.apply(null, arguments);
 };
 
 var real____errno_location = asm["___errno_location"]; asm["___errno_location"] = function() {
@@ -62404,10 +62404,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__lou_listTables.apply(null, arguments);
 };
 
-var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
+var real__defaultLogCallback = asm["_defaultLogCallback"]; asm["_defaultLogCallback"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__llvm_cttz_i32.apply(null, arguments);
+return real__defaultLogCallback.apply(null, arguments);
 };
 
 var real__malloc = asm["_malloc"]; asm["_malloc"] = function() {
@@ -62476,6 +62476,12 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__lou_logEnd.apply(null, arguments);
 };
 
+var real__lou_registerTableResolver = asm["_lou_registerTableResolver"]; asm["_lou_registerTableResolver"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_registerTableResolver.apply(null, arguments);
+};
+
 var real___lou_pattern_reverse = asm["__lou_pattern_reverse"]; asm["__lou_pattern_reverse"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -62486,7 +62492,7 @@ var __lou_logMessage = Module["__lou_logMessage"] = asm["__lou_logMessage"];
 var __lou_findOpcodeNumber = Module["__lou_findOpcodeNumber"] = asm["__lou_findOpcodeNumber"];
 var _lou_version = Module["_lou_version"] = asm["_lou_version"];
 var _bitshift64Lshr = Module["_bitshift64Lshr"] = asm["_bitshift64Lshr"];
-var ___udivdi3 = Module["___udivdi3"] = asm["___udivdi3"];
+var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
 var __lou_isValidMode = Module["__lou_isValidMode"] = asm["__lou_isValidMode"];
 var __lou_getTablePath = Module["__lou_getTablePath"] = asm["__lou_getTablePath"];
 var _lou_indexTables = Module["_lou_indexTables"] = asm["_lou_indexTables"];
@@ -62537,7 +62543,7 @@ var _lou_charSize = Module["_lou_charSize"] = asm["_lou_charSize"];
 var __lou_findOpcodeName = Module["__lou_findOpcodeName"] = asm["__lou_findOpcodeName"];
 var __lou_unknownDots = Module["__lou_unknownDots"] = asm["__lou_unknownDots"];
 var __lou_extParseDots = Module["__lou_extParseDots"] = asm["__lou_extParseDots"];
-var _lou_registerTableResolver = Module["_lou_registerTableResolver"] = asm["_lou_registerTableResolver"];
+var ___udivdi3 = Module["___udivdi3"] = asm["___udivdi3"];
 var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
 var _lou_checkTable = Module["_lou_checkTable"] = asm["_lou_checkTable"];
 var __lou_outOfMemory = Module["__lou_outOfMemory"] = asm["__lou_outOfMemory"];
@@ -62547,7 +62553,7 @@ var __lou_logWidecharBuf = Module["__lou_logWidecharBuf"] = asm["__lou_logWidech
 var _lou_charToDots = Module["_lou_charToDots"] = asm["_lou_charToDots"];
 var ___uremdi3 = Module["___uremdi3"] = asm["___uremdi3"];
 var _lou_listTables = Module["_lou_listTables"] = asm["_lou_listTables"];
-var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
+var _defaultLogCallback = Module["_defaultLogCallback"] = asm["_defaultLogCallback"];
 var _malloc = Module["_malloc"] = asm["_malloc"];
 var __lou_showString = Module["__lou_showString"] = asm["__lou_showString"];
 var _lou_getTable = Module["_lou_getTable"] = asm["_lou_getTable"];
@@ -62559,6 +62565,7 @@ var _lou_getTableInfo = Module["_lou_getTableInfo"] = asm["_lou_getTableInfo"];
 var _lou_readCharFromFile = Module["_lou_readCharFromFile"] = asm["_lou_readCharFromFile"];
 var _lou_dotsToChar = Module["_lou_dotsToChar"] = asm["_lou_dotsToChar"];
 var _lou_logEnd = Module["_lou_logEnd"] = asm["_lou_logEnd"];
+var _lou_registerTableResolver = Module["_lou_registerTableResolver"] = asm["_lou_registerTableResolver"];
 var __lou_pattern_reverse = Module["__lou_pattern_reverse"] = asm["__lou_pattern_reverse"];
 var dynCall_ii = Module["dynCall_ii"] = asm["dynCall_ii"];
 var dynCall_iiii = Module["dynCall_iiii"] = asm["dynCall_iiii"];
