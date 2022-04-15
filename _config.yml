@@ -1,0 +1,5 @@
+exclude:
+  - README.md
+  - bower.json
+  - package-lock.json
+  - package.json
