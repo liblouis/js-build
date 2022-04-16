@@ -1,7 +1,7 @@
 # This table is meant to be used for forward translation only.
 # The generated Braille is primarily meant for embossing and is not
 # suitable for back-translation.
-# Please, use the bidirectional tables in contexts where
+# Please, use the detailed tables in contexts where
 # back-translation is an issue.
 # -----------
 
@@ -9,7 +9,7 @@
 #-index-name: German, contracted
 #-display-name: German contracted braille
 #
-#+locale:de
+#+language:de
 #+type:literary
 #+contraction:full
 #+grade:2

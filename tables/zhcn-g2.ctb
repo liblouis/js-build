@@ -3,9 +3,13 @@
 #-index-name:  Mandarin, mainland China, 2-cell
 #-display-name: Two-cell Chinese braille
 #
-#+locale:cmn-CN
+#+language:cmn
+#+region:cmn-CN
 #+type:literary
 #+system:cmn-two-cell
+# Marked as "direction:forward" by Bue Vester-Andersen
+# as tests only run forward.
+#direction:forward
 #
 # Version 2018-09-10
 # Optimize the display of Braille.

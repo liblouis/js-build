@@ -3,11 +3,14 @@
 #-display-name: Malay braille
 #-index-name: Malay
 #
-#+locale:ms
+#+language:ms
 #+type:literary
 #+contraction:full
 #+grade:2
 #+dots:6
+# Marked as "direction:forward" by Bue Vester-Andersen
+# as tests only run forward.
+#+direction:forward
 #
 #  Copyright (C) 2019, 2020, The National Council For The Blind,
 #  Malaysia, Unit 13-8, Menara Sentral Vista, No. 150 Jalan Sultan
@@ -1930,7 +1933,7 @@ always kampung 13-1245
 always kampungkan 13-1245-345
 always kamukan 13-1-134-136-345
 word kan 345
-match %![^_] kan ![AaEeGgIiOoUu] 345
+match !%[^_] kan ![AaEeGgIiOoUu] 345
 match ng kan - 345
 always kanada 13-1345-145
 contraction knd

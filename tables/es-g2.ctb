@@ -4,10 +4,13 @@
 #-index-name: Spanish, contracted
 #-display-name: Spanish contracted braille
 #
-#+locale:es
+#+language:es
 #+type:literary
 #+contraction:full
 #+grade:2
+# Marked as "direction:forward" by Bue Vester-Andersen
+# as tests only run forward.
+#+direction:forward
 # -----------
 #
 #  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
@@ -16,6 +19,22 @@
 #  Copyright (C) 2018 Juan Pablo Bello
 #
 #  Other contributors: Carlos Monge (providing sources), Bert Frees (aid in table development)
+#
+#  This file is part of liblouis.
+#
+#  liblouis is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation, either version 2.1 of the
+#  License, or (at your option) any later version.
+#
+#  liblouis is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with liblouis. If not, see
+#  <http://www.gnu.org/licenses/>.
 #
 #  Remarks: this table is largely based following the conventions as set in the ONCE
 #  international manual for contracted (abbreviated) Spanish grade 2 stenography manual
@@ -51,31 +70,14 @@
 #  the user may encounter in applying it to his or her work. So reporting of any of those
 #  is always encouraged.
 #
-#  This file is part of liblouis.
-#
-#  liblouis is free software: you can redistribute it and/or modify it
-#  under the terms of the GNU Lesser General Public License as
-#  published by the Free Software Foundation, either version 2.1 of the
-#  License, or (at your option) any later version.
-#
-#  liblouis is distributed in the hope that it will be useful, but
-#  WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#  Lesser General Public License for more details.
-#
-#  You should have received a copy of the GNU Lesser General Public
-#  License along with liblouis. If not, see
-#  <http://www.gnu.org/licenses/>.
-#
 # ----------------------------------------------------------------------
-
 
 # Add virtual dot to k, w and x (see below). This overwrites the definitions from
 # es-g1.ctb. For the table to work these rules need to be defined before AND after the
 # include.
-uplow Kk 13b
-uplow Ww 2456b
-uplow Xx 1346b
+lowercase k 13b
+lowercase w 2456b
+lowercase x 1346b
 
 include es-g1.ctb
 
@@ -171,9 +173,9 @@ nocont x
 
 # To prefix the words with dot 5 we use a multi-pass implementation. First we add a virtual
 # dot to k, w and x so that they can be distinguished in pass2.
-uplow Kk 13b
-uplow Ww 2456b
-uplow Xx 1346b
+lowercase k 13b
+lowercase w 2456b
+lowercase x 1346b
 
 # Then we define a class and a swap set. The class is needed to make the negations work.
 # (does not work with only the swapdd rule: is this a bug?)
