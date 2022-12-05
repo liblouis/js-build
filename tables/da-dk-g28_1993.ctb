@@ -1,6 +1,6 @@
-# liblouis: Danish, table for 8 dots grade 1.5, partial contraction (forward and backward translation)
+# liblouis: Danish, table for 8 dots grade 2 (forward and backward translation) 1993
 #
-#  Copyright (C) 2014-2020, Bue Vester-Andersen <bue@vester-andersen.dk>
+#  Copyright (C) 2014, 2016-2021, Bue Vester-Andersen <bue@vester-andersen.dk>
 #
 #  This file is part of liblouis.
 #
@@ -20,27 +20,30 @@
 #
 #------------
 #
+# This  is the Danish table for 8 dots grade 2 (stor forkortelse) 1993.
+# Use this table for translation and back-translation of Danish 8 dots grade 2.
 #
-# This  is the Danish table for 8 dots grade 2l/1.5 limited contractions (lille forkortelse).
-# Use this table for translation and back-translation of Danish 8 dots grade 2 limited.
-#
-# Version: Bue Vester-Andersen, 200302
+# Version: Bue Vester-Andersen, December 2022
 
 ### Table Metadata
 
-#-index-name: Danish, partially contracted, 8-dot
-#-display-name: Danish 8-dot partially contracted braille
+#-name: Dansk forkortet 8-punkt 1993
+#-index-name: Danish, contracted, 8-dot, 1993
+#-display-name: Danish 8-dot contracted braille (1993 standard)
 
 #+language: da
 #+type: literary
-#+contraction: partial
-#+grade: 1.5
+#+contraction: full
+#+grade: 2
 #+dots: 8
 #+direction: both
+#+system: ddp
+#+version: 1993
 
+#-has-nocross: yes
 
-# Display opcodes
-include da-dk-octobraille.dis
+# Display upcodes
+include da-dk-octobraille_1993.dis
 
 ### Character definitions ###
 
@@ -177,6 +180,7 @@ letter \x009d 2567 OPERATING SYSTEM COMMAND
 lowercase \x00ff 234568 #LATIN LETTER Y WITH DIAERESIS (0x9f)
 noback uppercase \x009f 2345678 #LATIN LETTER Y WITH DIAERESIS (0x9f)
 punctuation \x00a0 23458 NO-BREAK SPACE (0xa0)
+punctuation \x00a1 256 INVERTED EXCLAMATION MARK )0xa1)
 punctuation \x00a2 2578 CENT SIGN (0xa2)
 punctuation \x00a3 1238 POUND SIGN (0xa3)
 punctuation \x00a5 67 YEN SIGN (0xa5)
@@ -200,31 +204,34 @@ letter \x00ba 12345678 MASCULINE ORDINAL INDICATOR
 punctuation \x00bb 567 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 punctuation \x00bc 13458 VULGAR FRACTION ONE QUARTER
 punctuation \x00bd 458 VULGAR FRACTION ONE HALF
-lowercase \x00e1 123568 LATIN  LETTER A WITH ACUTE
-lowercase \x00e2 168 LATIN  LETTER A WITH CIRCUMFLEX
-lowercase \x00e3 1468 LATIN  LETTER A WITH TILDE
-lowercase \x00e4 3458 LATIN  LETTER A WITH DIAERESIS
+lowercase \x00e1 123568 LATIN LETTER A WITH ACUTE
+lowercase \x00e2 168 LATIN LETTER A WITH CIRCUMFLEX
+lowercase \x00e3 1468 LATIN LETTER A WITH TILDE
+lowercase \x00e4 3458 LATIN LETTER A WITH DIAERESIS
 lowercase \x00e5 16 LATIN LETTER A WITH RING ABOVE
 lowercase \x00e6 345 LATIN LETTER AE
-lowercase \x00ec 1568 LATIN  LETTER I WITH GRAVE
-lowercase \x00ed 1268 LATIN  LETTER I WITH ACUTE
-lowercase \x00f0 134568 LATIN  LETTER ETH
-lowercase \x00f1 124568 LATIN  LETTER N WITH TILDE
-lowercase \x00f2 12468 LATIN  LETTER O WITH GRAVE
-lowercase \x00f3 3468 LATIN  LETTER O WITH ACUTE
-lowercase \x00f5 14568 LATIN  LETTER O WITH TILDE
-lowercase \x00f6 2468 LATIN  LETTER O WITH DIAERESIS
+lowercase \x00ec 1568 LATIN LETTER I WITH GRAVE
+lowercase \x00ed 1268 LATIN LETTER I WITH ACUTE
+lowercase \x00f0 134568 LATIN LETTER ETH
+lowercase \x00f1 124568 LATIN LETTER N WITH TILDE
+lowercase \x00f2 12468 LATIN LETTER O WITH GRAVE
+lowercase \x00f3 3468 LATIN LETTER O WITH ACUTE
+lowercase \x00f5 14568 LATIN LETTER O WITH TILDE
+lowercase \x00f6 2468 LATIN LETTER O WITH DIAERESIS
 math \x00d7 13468 MULTIPLICATION SIGN
 lowercase \x00f8 246 LATIN LETTER O WITH STROKE
-lowercase \x00fa 12568 LATIN  LETTER U WITH ACUTE
-lowercase \x00fd 1348 LATIN  LETTER Y WITH ACUTE (infinite?)
-lowercase \x00fe 138 LATIN  LETTER THORN
+lowercase \x00fa 12568 LATIN LETTER U WITH ACUTE
+lowercase \x00fd 1348 LATIN LETTER Y WITH ACUTE (infinite?)
+lowercase \x00fe 138 LATIN LETTER THORN
 lowercase \x00df 23468 LATIN SMALL LETTER SHARP S
 math \x00f7 2568 DIVISION SIGN
 
 # Character used for capslettersign
 # Resides in the "private use area", and shouldn't conflict with anything.
 sign \xf8ff f
+
+# Used as dash where dash should act as space.
+space \xf8fe ef
 
 #Unicode Braille patterns
 include braille-patterns.cti
@@ -339,7 +346,7 @@ lowercase \x0175 5-2456 Latin letter w with circumflex
 lowercase \x0177 5-13456 Latin letter y with circumflex
 lowercase \x017a 5-1356 Latin letter z with acute
 noback lowercase \x017c 5-1356 Latin letter z with dot above
-noback lowercase \x017f 5-234 Latin small letter long s 
+noback lowercase \x017f 5-234 Latin small letter long s
 
 # Greek letters (with dots 458 as prefix)
 
@@ -376,7 +383,7 @@ lowercase \x03C7 458-12346 Greek letter Chi
 lowercase \x03C8 458-13456 Greek letter Psi
 lowercase \x03C9 458-2456 Greek letter Omega
 
-include da-dk-8miscChars.cti
+include da-dk-8miscChars_1993.cti
 
 # Uppercase letters
 
@@ -395,7 +402,7 @@ base uppercase L l LATIN LETTER L
 base uppercase M m LATIN LETTER M
 base uppercase N n LATIN LETTER N
 base uppercase O o LATIN LETTER O
-base uppercase P p LATIN CAPITAL LETTER P
+base uppercase P p LATIN LETTER P
 base uppercase Q q LATIN LETTER Q
 base uppercase R r LATIN LETTER R
 base uppercase S s LATIN LETTER S
@@ -406,14 +413,14 @@ base uppercase W w LATIN LETTER W
 base uppercase X x LATIN LETTER X
 base uppercase Y y LATIN LETTER Y
 base uppercase Z z LATIN LETTER Z
-base uppercase \x008a \x009a #LATIN LETTER S WITH CARON (0x8a)
-base uppercase \x008c \x009c #LATIN LIGATURE OE (0x8c)
-base uppercase \x008e \x009e #LATIN  LETTER Z WITH CARON (0x8e)
+base uppercase \x008a \x009a LATIN LETTER S WITH CARON (0x8a)
+base uppercase \x008c \x009c LATIN LIGATURE OE (0x8c)
+base uppercase \x008e \x009e LATIN  LETTER Z WITH CARON (0x8e)
 base uppercase \x00c0 \x00e0 LATIN  LETTER A WITH GRAVE
-base uppercase \x00c1 \x00e1 LATIN  LETTER A WITH ACUTE
-base uppercase \x00c2 \x00e2 LATIN  LETTER A WITH CIRCUMFLEX
-base uppercase \x00c3 \x00e3 LATIN  LETTER A WITH TILDE
-base uppercase \x00c4 \x00e4 LATIN  LETTER A WITH DIAERESIS
+base uppercase \x00c1 \x00e1 LATIN LETTER A WITH ACUTE
+base uppercase \x00c2 \x00e2 LATIN LETTER A WITH CIRCUMFLEX
+base uppercase \x00c3 \x00e3 LATIN LETTER A WITH TILDE
+base uppercase \x00c4 \x00e4 LATIN LETTER A WITH DIAERESIS
 base uppercase \x00c5 \x00e5 LATIN LETTER A WITH RING ABOVE
 base uppercase \x00c6 \x00e6 LATIN LETTER AE
 base uppercase \x00c7 \x00e7 LATIN  LETTER C WITH CEDILLA
@@ -421,24 +428,24 @@ base uppercase \x00c8 \x00e8 LATIN  LETTER E WITH GRAVE
 base uppercase \x00c9 \x00e9 LATIN  LETTER E WITH ACUTE
 base uppercase \x00ca \x00ea LATIN  LETTER E WITH CIRCUMFLEX
 base uppercase \x00cb \x00eb LATIN  LETTER E WITH DIAERESIS
-base uppercase \x00cc \x00ec LATIN  LETTER I WITH GRAVE
-base uppercase \x00cd \x00ed LATIN  LETTER I WITH ACUTE
+base uppercase \x00cc \x00ec LATIN LETTER I WITH GRAVE
+base uppercase \x00cd \x00ed LATIN LETTER I WITH ACUTE
 base uppercase \x00ce \x00ee LATIN  LETTER I WITH CIRCUMFLEX
 base uppercase \x00cf \x00ef LATIN  LETTER I WITH DIAERESIS
-base uppercase \x00d0 \x00f0 LATIN  LETTER ETH
-base uppercase \x00d1 \x00f1 LATIN  LETTER N WITH TILDE
-base uppercase \x00d2 \x00f2 LATIN  LETTER O WITH GRAVE
-base uppercase \x00d3 \x00f3 LATIN  LETTER O WITH ACUTE
+base uppercase \x00d0 \x00f0 LATIN LETTER ETH
+base uppercase \x00d1 \x00f1 LATIN LETTER N WITH TILDE
+base uppercase \x00d2 \x00f2 LATIN LETTER O WITH GRAVE
+base uppercase \x00d3 \x00f3 LATIN LETTER O WITH ACUTE
 base uppercase \x00d4 \x00f4 LATIN  LETTER O WITH CIRCUMFLEX
-base uppercase \x00d5 \x00f5 LATIN  LETTER O WITH TILDE
-base uppercase \x00d6 \x00f6 LATIN  LETTER O WITH DIAERESIS
+base uppercase \x00d5 \x00f5 LATIN LETTER O WITH TILDE
+base uppercase \x00d6 \x00f6 LATIN LETTER O WITH DIAERESIS
 base uppercase \x00d8 \x00f8 LATIN LETTER O WITH STROKE
 base uppercase \x00d9 \x00f9 LATIN  LETTER U WITH GRAVE
-base uppercase \x00da \x00fa LATIN  LETTER U WITH ACUTE
+base uppercase \x00da \x00fa LATIN LETTER U WITH ACUTE
 base uppercase \x00db \x00fb LATIN  LETTER U WITH CIRCUMFLEX
 base uppercase \x00dc \x00fc LATIN  LETTER U WITH DIAERESIS
-base uppercase \x00dd \x00fd LATIN  LETTER Y WITH ACUTE (infinite?)
-base uppercase \x00de \x00fe LATIN  LETTER THORN
+base uppercase \x00dd \x00fd LATIN LETTER Y WITH ACUTE (infinite?)
+base uppercase \x00de \x00fe LATIN LETTER THORN
 base uppercase \x0100 \x0101 Latin letter a with macron
 base uppercase \x0102 \x0103 Latin letter a with breve
 base uppercase \x0104 \x0105 Latin letter a with ogonek
@@ -479,14 +486,14 @@ base uppercase \x014a \x014b Latin letter eng
 base uppercase \x014c \x014d Latin letter o with macron
 base uppercase \x014e \x014f Latin letter o with breve
 base uppercase \x0150 \x0151 Latin letter o with double acute
-base uppercase \x0152 \x0153 #LATIN CAPITAL LIGATURE OE (0x8c)
+base uppercase \x0152 \x0153 LATIN LIGATURE OE (0x8c)
 base uppercase \x0154 \x0155 Latin letter r with acute
 base uppercase \x0156 \x0157 Latin letter r with cedilla
 base uppercase \x0158 \x0159 Latin letter r with caron
 base uppercase \x015a \x015b Latin letter s with acute
 base uppercase \x015c \x015d Latin letter s with circumflex
 base uppercase \x015e \x015f Latin letter s with cedilla
-base uppercase \x0160 \x0161 #LATIN CAPITAL LETTER S WITH CARON (0x8a)
+base uppercase \x0160 \x0161 LATIN LETTER S WITH CARON (0x8a)
 base uppercase \x0162 \x0163 Latin letter t with cedilla
 base uppercase \x0164 \x0165 Latin letter t with caron
 base uppercase \x0166 \x0167 Latin letter t with stroke
@@ -498,10 +505,10 @@ base uppercase \x0170 \x0171 Latin letter u with double acute
 base uppercase \x0172 \x0173 Latin letter u with ogonek
 base uppercase \x0174 \x0175 Latin letter w with circumflex
 base uppercase \x0176 \x0177 Latin letter y with circumflex
-base uppercase \x0178 \x00ff #LATIN LETTER Y WITH DIAERESIS (0x9f)
+base uppercase \x0178 \x00ff LATIN LETTER Y WITH DIAERESIS (0x9f)
 base uppercase \x0179 \x017a Latin letter z with acute
 base uppercase \x017b \x017c Latin letter z with dot above
-base uppercase \x017d \x017e #LATIN  LETTER Z WITH CARON (0x8e)
+base uppercase \x017d \x017e LATIN  LETTER Z WITH CARON (0x8e)
 base uppercase \x0386 \x03AC Greek letter alpha with tonos
 base uppercase \x0388 \x03AD Greek letter epsilon with tonos
 base uppercase \x0389 \x03AE Greek letter eta with tonos
@@ -801,9 +808,9 @@ nofor always \x03A7 458-123467
 nofor always \x03A8 458-134567
 nofor always \x03A9 458-24567
 
-
 ### misc opcodes ###
 
+# Emphasis opcodes
 # Emphasis opcodes
 emphclass italic
 emphclass underline
@@ -822,7 +829,7 @@ endemphphrase underline after 56
 decpoint , 2
 hyphen - 368
 letsign 6
-noletsign Ii\x0138\x0149
+noletsign IQWXZiqwxz\x0149
 noletsignbefore 1234567890
 
 capsletter f
@@ -839,12 +846,19 @@ noback context _$d["st"]!$l @6-234-2345
 noback context _$d["st"]~ @6-234-2345
 noback context _$d["nd"]!$l @1345-145
 noback context _$d["nd"]~ @1345-145
-# Ensure that we get a letsign between a digit and a single letter.
+# The following lines are to ensure that we get a letsign between a digit and a single letter.
 noback context $d[]$l!$l @6
 noback context $d[]$l~ @6
 
-#Special sequences, urls emails and file names.
+### Correct - Forward translation
 
+# Ensure that capsnocont does not stretch across dashes
+noback correct $U["-"] "\xf8fe"
+
+# Special characters that always need letsigns because they represent contractions
+always \x00a1 6-256 # inverted exclamationmark
+
+#Special sequences, urls emails and file names.
 nocont $
 nocont \\ # line cannot end with a backslash
 nocont @
@@ -871,143 +885,424 @@ nocont .wav
 nocont .tar
 nocont .zip
 
-
 # Remove space between § and numbers.
 noback begnum § 578
 begnum §\s 578
 begnum §§\s 578-578
 always §§ 578-578
 
-# Word contractions with only 1 cell
+#Words
+word af 356
+word aldrig 1-35
+word aig =
+word alle 1-15
+begnum ae 6-1-15
+contraction ae
+word allerede 1-123-1235
+begnum alr 6-1-123-1235
+contraction alr
+word alligevel 1-123-1236
+begnum alv 6-1-123-1236
+contraction alv
+word altid 1-2345-145
+begnum atd 6-1-2345-145
+contraction atd
+word altså 1-16
+begnum aå 6-1-16
+contraction aå
 word at 1
+
+word blevet 12-2345
+begnum bt 6-12-2345
+contraction bt
+word blev 12-1236
+begnum bv 6-12-1236
+contraction bv
+word blive 12-3456
+word bve 12-1236-15
 word bliver 12
-word den 12346
-word der 23456
-word det 2346
-word de 1456
+
+word derefter 23456-1356
+word derst =
+word deres 256
+word derfor 23456-124
+word derf =
+word derigennem 23456-24-12456
+word derige 1456-1235-24-12456
+word dermed 23456-134
+word derm =
+word derned 23456-1246
+word derne =
+word derop 23456-135
+word dero =
+word derover 23456-1346
+word deror =
+word derpå 23456-1234
+word derp =
+word dersom 23456-234
+word ders =
+word dertil 23456-2345
+word dert =
+word derunder 23456-12345
+word derved 23456-1236
+word din 145-1345
+begnum dn 6-145-1345
+contraction dn
+word disse 145-234
+begnum ds 6-145-234
+contraction ds
+word dit 145-2345
+begnum dt 6-145-2345
+contraction dt
 word du 145
+
 word efter 1356
 word eller 15
-word en 126
-word er 156
-word et 346
+word endnu 15-136
+begnum eu 6-15-136
+contraction eu
+
+word fik 124-13
+begnum fk 6-124-13
+contraction fk
+word fordi 124-145
+begnum fd 6-124-145
+contraction fd
+word forskellige 124-123456-15
+word fske =
+word forskelligt 124-123456-2345
+word fskt =
+word forskellig 124-123456
+word fsk =
 word for 124
+word fra 235
+word første 124-1356-15
+word først 124-1356
 word før 246
+
+word ganske 1245-123456
 word gennem 12456
+word ge =
+word gik 1245-13
+begnum gk 6-1245-13
+contraction gk
 word gør 1245
+
+word ham 236
+word hans 13456-234
+begnum ys 6-13456-234
+contraction ys
 word han 13456
 word har 125
+word havde 125-1456
+word hde =
+word have 125-3456
+word hve =
+word helt 125-2345
+begnum ht 6-125-2345
+contraction ht
+word hendes 125-234
+begnum hs 6-125-234
+contraction hs
+word hende 125-145
+begnum hd 6-125-145
+contraction hd
 word hun 136
 word hvad 2456
+word hv =
+word hvis 2456-234
+word hvs =
+word hvordan 34-1
+word hvora 34-6-1
+word hvorefter 34-1356
+word hvorst 34-234-2345
+word hvorfor 34-124
+word hvorf 34-6-124
+word hvorigennem 34-24-12456
+word hvorledes 34-15
+word hvore 34-6-15
+word hvormed 34-134
+word hvorm 34-6-134
+word hvornår 34-1345
+word hvorn 34-6-1345
+word hvorover 34-1346
+word hvoror 34-135-1235
+word hvorpå 34-1234
+word hvorp 34-6-1234
+word hvortil 34-2345
+word hvort 34-6-2345
+word hvorunder 34-12345
+word hvornd 34-1345-145
+word hvorved 34-1236
+word hvorv 34-6-1236
 word hvor 34
+
+word igennem 24-12456
+word ige =
+word igen 35
+word ig =
+word ikke 24-13
+begnum ik 6-24-13
+contraction ik
+word imidlertid 24-24
+begnum ii 6-24-24
+contraction ii
+
 word jeg 245
+
 word kan 13
+word kommer 13-156
+word ker =
+word kommet 13-346
+word ket =
+word komme 13-146
+word kme =
+word kom 13-134
+begnum km 6-13-134
+contraction km
+word kunne 13-1246
+word kne =
+
+word ligesom 123-234
+begnum ls 6-123-234
+contraction ls
 word lige 123
+word lille 123-123
+begnum ll 6-123-123
+contraction ll
+
+word mange 134-12456
+word mge =
 word med 134
+word megen 146-126
+word meen =
+word meget 146-346
+word meet =
+word mellem 146-134
+word mem =
 word men 146
+word me =
+word min 134-1345
+begnum mn 6-134-1345
+contraction mn
+word mit 134-2345
+begnum mt 6-145-2345
+contraction mt
+word måske 134-123456
+word msk =
+word måtte 134-1256
+word mte =
+
+word naturligvis 1345-2345-1236
+begnum ntv 6-1345-2345-1236
+contraction ntv
+word nd =
 word ned 1246
+word ne =
+word nogen 1345-1345
+begnum nn 6-1345-1345
+contraction nn
+word noget 1345-2345
+begnum nt 6-1345-2345
+contraction nt
+word nogle 1345-123-15
+begnum nle 6-1345-123-15
+contraction nle
 word når 1345
+
+word også 14-16
+begnum cå 6-14-16
+contraction cå
 word og 14
+word omkring 135-134-13
+begnum omk 6-135-134-13
+contraction omk
 word op 135
+word or =
 word over 1346
+
 word på 1234
+
 word ret 12356
+word re 1235-15
+word rigtige 1235-12456
+word rge =
+word rigtigt 1235-2345
+begnum rt 6-1235-2345
+contraction rt
 word rigtig 1235
+
+word sagde 234-1456
+word sammen 234-134
+begnum sm 6-234-134
+contraction sm
+word samme 234-146
+word sme =
+word selvfølgelig 234-1236-124
+begnum svf 6-234-1236-124
+contraction svf
+word selv 234-1236
+begnum sv 6-234-1236
+contraction sv
+word sidste 234-1356-15
+word sste =
+word sidst 234-1356
+word sst =
+word sin 234-1345
+begnum sn 6-234-1345
+contraction sn
+word sit 234-2345
+begnum st 6-234-2345
+contraction st
 word skal 123456
+word sk =
+word skulle 123456-123-15
+word skle =
+word snart 234-1235
+begnum sr 6-234-1235
+contraction sr
 word som 234
+word sådan 16-1
+begnum åa 6-16-1
+contraction åa
+word således 16-15
+begnum åe 6-16-15
+contraction åe
 word så 16
+
 word te 1256
+word tid 2345-145
+begnum td 6-2345-145
+contraction td
+word tilbage 2345-12
+begnum tb 6-2345-12
+contraction tb
 word til 2345
+
 word under 12345
-word ved 1236
+
+word var- =
+word var. =
+word var 36
 word ve 3456
+word ved 1236
+word ville 1236-123-15
+begnum vle 6-1236-123-15
+contraction vle
+word vil 1236-123
+begnum vl 6-1236-123
+contraction vl
+word været 1236-2345
+begnum vt 6-1236-2345
+contraction vt
 word være 345
 
-### Exceptions ###
+#Part words
+nocross always den 12346
+nocross always der 23456
+nocross always det 2346
+nocross always de 1456
+nocross always en 126
+nocross always er 156
+nocross always et 346
+nocross always ge 12456
+nocross always hvor 34
+nocross always hv 2456
+nocross always ig 35
+nocross always me 146
+nocross always nd 12345
+nocross always ne 1246
+nocross always or 1346
+nocross always re 12356
+nocross always sk 123456
+nocross always st 1356
+nocross always te 1256
+nocross always ve 3456
 
-# Ensure no single cell word contraction before or after a dash
-word -at 368-1-2345
-word at- 1-2345-368
-word -bliver 368-12-123-24-1236-15-1235
-word bliver- 12-123-24-1236-15-1235-368
-word -den 368-145-15-1345
-word den- 145-15-1345-368
-word -der 368-145-15-1235
-word der- 145-15-1235-368
-word -det 368-145-15-2345
-word det- 145-15-2345-368
-word -de 368-145-15
-word de- 145-15-368
-word -du 368-145-136
-word du- 145-136-368
-word -efter 368-15-124-2345-15-1235
-word efter- 15-124-2345-15-1235-368
-word -er 368-15-1235
-word er- 15-1235-368
-word -et 368-15-2345
-word et- 15-2345-368
-word -for 368-124-135-1235
-word for- 124-135-1235-368
-word -før 368-124-246-1235
-word før- 124-246-1235-368
-word -gennem 368-1245-15-1345-1345-15-134
-word gennem- 1245-15-1345-1345-15-134-368
-word -gør 368-1245-246-1235
-word gør- 1245-246-1235-368
-word -han 368-125-1-1345
-word han- 125-1-1345-368
-word -har 368-125-1-1235
-word har- 125-1-1235-368
-word -hun 368-125-136-1345
-word hun- 125-136-1345-368
-word -kan 368-13-1-1345
-word kan- 13-1-1345-368
-word -lige 368-123-24-12456
-word lige- 123-24-12456-368
-word -med 368-146-145
-word med- 146-145-368
-word -men 368-134-126
-word men- 134-126-368
-word -ned 368-1345-15-145
-word ned- 1345-15-145-368
-word -når 368-1345-16-1235
-word når- 1345-16-1235-368
-word -og 368-135-1245
-word og- 135-1245-368
-word -op 368-135-1234
-word op- 135-1234-368
-word -over 368-135-1236-15-1235
-word over- 135-1236-15-1235-368
-word -på 368-1234-16
-word på- 1234-16-368
-word -ret 368-1235-15-2345
-word ret- 1235-15-2345-368
-word -rigtig 368-1235-24-1245-2345-24-1245
-word rigtig- 1235-24-1245-2345-24-1245-368
-word -skal 368-234-13-1-123
-word skal- 234-13-1-123-368
-word -som 368-234-135-134
-word som- 234-135-134-368
-word -så 368-234-16
-word så- 234-16-368
-word -te 368-2345-15
-word te- 2345-15-368
-word -til 368-2345-24-123
-word til- 2345-24-123-368
-word -under 368-136-1345-145-15-1235
-word under- 136-1345-145-15-1235-368
-word -ved 368-1236-15-145
-word ved- 1236-15-145-368
-word -ve 368-1236-15
-word ve- 1236-15-368
-word -være 368-1236-345-1235-15
-word Være- 1236-345-1235-15-368
+#special cases with dropped signs
+# which can be both punctuations and contractions.
 
-### Patches ###
-# the following sections are to compensate for various behaviours and problems in liblouis.
-# They will be removed, as the issues are resolved.
+always fra! 124-1235-1-235
+always !fra 235-124-1235-1
+always !! 235-235
+always !!! 235-235-235
+always "fra" 2356-124-1235-1-2356
+after punctuation always ! 6-235
+always 'af 4-1-124
 
-# Ensure correct back-translation of word contractions before various punctuation.
+always \s! 0-6-235
+prepunc ! 6-235
+nofor always ! 6-235
+noback context `["!"] @6-235
+
+
+# Ensure no one-letter word contraction before or after a dash
+
+prfword -af 368-1-124
+sufword af- 1-124-368
+prfword -at 368-1-2345
+sufword at- 1-2345-368
+prfword -deres 368-1456-12356-234
+sufword deres- 1456-12356-234-368
+prfword -du 368-145-136
+sufword du- 145-136-368
+prfword -efter 368-15-124-2345-156
+sufword efter- 15-124-2345-156-368
+prfword -for 368-124-1346
+sufword for- 124-1346-368
+prfword -fra 368-124-1235-1
+sufword fra- 124-1235-1-368
+prfword -gennem 368-1245-126-1246-134
+sufword gennem- 1245-126-1246-134-368
+prfword -ham 368-125-1-134
+sufword ham- 125-1-134-368
+prfword -han 368-125-1-1345
+sufword han- 125-1-1345-368
+prfword -har 368-125-1-1235
+sufword har- 125-1-1235-368
+prfword -hun 368-125-136-1345
+sufword hun- 125-136-1345-368
+prfword -kan 368-13-1-1345
+sufword kan- 13-1-1345-368
+prfword -lige 368-123-24-12456
+sufword lige- 123-24-12456-368
+prfword -med 368-146-145
+sufword med- 146-145-368
+prfword -men 368-134-126
+sufword men- 134-126-368
+prfword -ned 368-1246-145
+sufword ned- 1246-145-368
+prfword -når 368-1345-16-1235
+sufword når- 1345-16-1235-368
+prfword -og 368-135-1245
+sufword og- 135-1245-368
+prfword -op 368-135-1234
+sufword op- 135-1234-368
+prfword -over 368-135-1236-156
+sufword over- 135-1236-156-368
+prfword -på 368-1234-16
+sufword på- 1234-16-368
+prfword -ret 368-1235-346
+sufword ret- 1235-346-368
+prfword -rigtig 368-1235-35-2345-35
+sufword rigtig- 1235-35-2345-35-368
+prfword -skal 368-123456-1-123
+sufword skal- 123456-1-123-368
+prfword -som 368-234-135-134
+sufword som- 234-135-134-368
+prfword -så 368-234-16
+sufword så- 234-16-368
+prfword -til 368-2345-24-123
+sufword til- 2345-24-123-368
+prfword -under 368-136-1345-23456
+sufword under- 136-1345-23456-368
+prfword -ved 368-1236-15-145
+sufword ved- 1236-15-145-368
+prfword -være 368-1236-345-12356
+sufword være- 1236-345-12356-368
+
+# *** patches for various Liblouis bugs
+# this file will be removed when the bugs are fixed
 
 nofor always a 6-1
 nofor always b 6-12
@@ -1070,51 +1365,213 @@ nofor always Å 6-167
 # if a word contraction is followed by a punctuation and another word immediately after,
 # The contracted word before the punctuation will back-translate as its components
 attribute wordlimit /,!.:’()?"'\x00ab_\x201d\x0094\x2019\x0092\x00bb
-
+nofor before wordlimit begword af 356
+nofor before wordlimit begword aldrig 1-35
+nofor before wordlimit begword aig =
+nofor before wordlimit begword alle 1-15
+nofor before wordlimit begword allerede 1-123-1235
+nofor before wordlimit begword alligevel 1-123-1236
+nofor before wordlimit begword altid 1-2345-145
+nofor before wordlimit begword altså 1-16
 nofor before wordlimit begword at 1
+
+nofor before wordlimit begword blevet 12-2345
+nofor before wordlimit begword blev 12-1236
+nofor before wordlimit begword blive 12-3456
+nofor before wordlimit begword bve 12-1236-15
 nofor before wordlimit begword bliver 12
-nofor before wordlimit begword den 12346
-nofor before wordlimit begword der 23456
-nofor before wordlimit begword det 2346
-nofor before wordlimit begword de 1456
+
+nofor before wordlimit begword derefter 23456-1356
+nofor before wordlimit begword derst =
+nofor before wordlimit begword deres 256
+nofor before wordlimit begword derfor 23456-124
+nofor before wordlimit begword derf =
+nofor before wordlimit begword derigennem 23456-24-12456
+nofor before wordlimit begword derige 1456-1235-24-12456
+nofor before wordlimit begword dermed 23456-134
+nofor before wordlimit begword derm =
+nofor before wordlimit begword derned 23456-1246
+nofor before wordlimit begword derne =
+nofor before wordlimit begword derop 23456-135
+nofor before wordlimit begword dero =
+nofor before wordlimit begword derover 23456-1346
+nofor before wordlimit begword deror =
+nofor before wordlimit begword derpå 23456-1234
+nofor before wordlimit begword derp =
+nofor before wordlimit begword dersom 23456-234
+nofor before wordlimit begword ders =
+nofor before wordlimit begword dertil 23456-2345
+nofor before wordlimit begword dert =
+nofor before wordlimit begword derunder 23456-12345
+nofor before wordlimit begword derved 23456-1236
+nofor before wordlimit begword din 145-1345
+nofor before wordlimit begword disse 145-234
+nofor before wordlimit begword dit 145-2345
 nofor before wordlimit begword du 145
+
 nofor before wordlimit begword efter 1356
 nofor before wordlimit begword eller 15
-nofor before wordlimit begword en 126
-nofor before wordlimit begword er 156
-nofor before wordlimit begword et 346
+nofor before wordlimit begword endnu 15-136
+
+nofor before wordlimit begword fik 124-13
+nofor before wordlimit begword fordi 124-145
+nofor before wordlimit begword forskellige 124-123456-15
+nofor before wordlimit begword fske =
+nofor before wordlimit begword forskelligt 124-123456-2345
+nofor before wordlimit begword fskt =
+nofor before wordlimit begword forskellig 124-123456
+nofor before wordlimit begword fsk =
 nofor before wordlimit begword for 124
+nofor before wordlimit begword fra 235
+nofor before wordlimit begword første 124-1356-15
+nofor before wordlimit begword først 124-1356
 nofor before wordlimit begword før 246
+
+nofor before wordlimit begword ganske 1245-123456
 nofor before wordlimit begword gennem 12456
+nofor before wordlimit begword ge =
+nofor before wordlimit begword gik 1245-13
 nofor before wordlimit begword gør 1245
+
+nofor before wordlimit begword ham 236
+nofor before wordlimit begword hans 13456-234
 nofor before wordlimit begword han 13456
 nofor before wordlimit begword har 125
+nofor before wordlimit begword havde 125-1456
+nofor before wordlimit begword hde =
+nofor before wordlimit begword have 125-3456
+nofor before wordlimit begword hve =
+nofor before wordlimit begword helt 125-2345
+nofor before wordlimit begword hendes 125-234
+nofor before wordlimit begword hende 125-145
 nofor before wordlimit begword hun 136
 nofor before wordlimit begword hvad 2456
+nofor before wordlimit begword hv =
+nofor before wordlimit begword hvis 2456-234
+nofor before wordlimit begword hvs =
+nofor before wordlimit begword hvordan 34-1
+nofor before wordlimit begword hvorefter 34-1356
+nofor before wordlimit begword hvorfor 34-124
+nofor before wordlimit begword hvorigennem 34-24-12456
+nofor before wordlimit begword hvorledes 34-15
+nofor before wordlimit begword hvormed 34-134
+nofor before wordlimit begword hvornår 34-1345
+nofor before wordlimit begword hvorover 34-1346
+nofor before wordlimit begword hvorpå 34-1234
+nofor before wordlimit begword hvortil 34-2345
+nofor before wordlimit begword hvorunder 34-12345
+nofor before wordlimit begword hvorved 34-1236
 nofor before wordlimit begword hvor 34
+
+nofor before wordlimit begword igennem 24-12456
+nofor before wordlimit begword ige =
+nofor before wordlimit begword igen 35
+nofor before wordlimit begword ig =
+nofor before wordlimit begword ikke 24-13
+nofor before wordlimit begword imidlertid 24-24
+
 nofor before wordlimit begword jeg 245
+
 nofor before wordlimit begword kan 13
+nofor before wordlimit begword kommer 13-156
+nofor before wordlimit begword ker =
+nofor before wordlimit begword kommet 13-346
+nofor before wordlimit begword ket =
+nofor before wordlimit begword komme 13-146
+nofor before wordlimit begword kme =
+nofor before wordlimit begword kom 13-134
+nofor before wordlimit begword kunne 13-1246
+nofor before wordlimit begword kne =
+
+nofor before wordlimit begword ligesom 123-234
 nofor before wordlimit begword lige 123
+nofor before wordlimit begword lille 123-123
+
+nofor before wordlimit begword mange 134-12456
+nofor before wordlimit begword mge =
 nofor before wordlimit begword med 134
+nofor before wordlimit begword megen 146-126
+nofor before wordlimit begword meen =
+nofor before wordlimit begword meget 146-346
+nofor before wordlimit begword meet =
+nofor before wordlimit begword mellem 146-134
+nofor before wordlimit begword mem =
 nofor before wordlimit begword men 146
+nofor before wordlimit begword me =
+nofor before wordlimit begword min 134-1345
+nofor before wordlimit begword mit 134-2345
+nofor before wordlimit begword måske 134-123456
+nofor before wordlimit begword msk =
+nofor before wordlimit begword måtte 134-1256
+nofor before wordlimit begword mte =
+
+nofor before wordlimit begword naturligvis 1345-2345-1236
+nofor before wordlimit begword nd =
 nofor before wordlimit begword ned 1246
+nofor before wordlimit begword ne =
+nofor before wordlimit begword nogen 1345-1345
+nofor before wordlimit begword noget 1345-2345
+nofor before wordlimit begword nogle 1345-123-15
 nofor before wordlimit begword når 1345
+
+nofor before wordlimit begword også 14-16
 nofor before wordlimit begword og 14
+nofor before wordlimit begword omkring 135-134-13
 nofor before wordlimit begword op 135
+nofor before wordlimit begword or =
 nofor before wordlimit begword over 1346
+
 nofor before wordlimit begword på 1234
+
 nofor before wordlimit begword ret 12356
+nofor before wordlimit begword re 1235-15
+nofor before wordlimit begword rigtige 1235-12456
+nofor before wordlimit begword rge =
+nofor before wordlimit begword rigtigt 1235-2345
 nofor before wordlimit begword rigtig 1235
+
+nofor before wordlimit begword sagde 234-1456
+nofor before wordlimit begword sammen 234-134
+nofor before wordlimit begword samme 234-146
+nofor before wordlimit begword sme =
+nofor before wordlimit begword selvfølgelig 234-1236-124
+nofor before wordlimit begword selv 234-1236
+nofor before wordlimit begword sidste 234-1356-15
+nofor before wordlimit begword sste =
+nofor before wordlimit begword sidst 234-1356
+nofor before wordlimit begword sst =
+nofor before wordlimit begword sin 234-1345
+nofor before wordlimit begword sit 234-2345
 nofor before wordlimit begword skal 123456
+nofor before wordlimit begword sk =
+nofor before wordlimit begword skulle 123456-123-15
+nofor before wordlimit begword skle =
+nofor before wordlimit begword snart 234-1235
 nofor before wordlimit begword som 234
+nofor before wordlimit begword sådan 16-1
+nofor before wordlimit begword således 16-15
 nofor before wordlimit begword så 16
-nofor before wordlimit begword te 1256
+
+nofor before wordlimit begword tid 2345-145
+nofor before wordlimit begword tilbage 2345-12
 nofor before wordlimit begword til 2345
+
 nofor before wordlimit begword under 12345
+
+nofor before wordlimit begword var- =
+nofor before wordlimit begword var 36
 nofor before wordlimit begword ved 1236
+nofor before wordlimit begword ville 1236-123-15
+nofor before wordlimit begword vil 1236-123
+nofor before wordlimit begword været 1236-2345
 nofor before wordlimit begword være 345
 
-### Problems solved with pass 2 ###
+# Problems solved with pass 2
+
+# Convert the fake "space hyphen" back to a normal hyphen.
+noback pass2 @ef @368
+
+### Multi-pass opcodes for converting the virtual capsletter sign @f into dot 7.
 
 # Most of these lines are temporary.
 # They will be written with a few swap sets when the swapdd opcode has been fixed.
@@ -1138,6 +1595,12 @@ noback pass2 @f-6-35 @6-357
 noback pass2 @f-5-35 @5-357
 nofor pass2 @357 @f-35
 nofor pass2 @5-357 @f-5-35
+
+noback pass2 @f-36 @367
+noback pass2 @f-6-36 @6-367
+noback pass2 @f-5-36 @5-367
+nofor pass2 @367 @f-36
+nofor pass2 @5-367 @f-5-36
 
 noback pass2 @f-1 @17
 noback pass2 @f-6-1 @6-17
@@ -1594,9 +2057,12 @@ nofor pass2 @6-3467 *
 nofor pass2 @6-2567 *
 nofor pass2 @6-2367 *
 nofor pass2 @6-34567 *
+nofor pass2 @6-367 *
 
 # remove any superfluous capsletter marks.
 noback pass2 @f ?
+
+# Pass 3
 
 # Remove any superfluous letsigns and only keep one.
 noback pass3 @6-6 @6
@@ -1605,7 +2071,9 @@ noback pass3 @6-6 @6
 
 noback pass3 @6-5 @5
 noback pass3 @6-458 @458
-
 # Ensure there is only one emphasis sign
 noback pass3 @56-56 @56
 noback pass3 @56-56-56 @56
+
+# Include hyphenation file as the last thing
+include da-dk-g2_1993.dic

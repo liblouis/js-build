@@ -1,6 +1,6 @@
-# Liblouis: Danish table for 6 dots grade 1 forward translation (literary)
+# Liblouis: Danish table for 6 dots grade 1 forward and backward translation (1993)
 #
-#  Copyright (C) 2014-2020, Bue Vester-Andersen <bue@vester-andersen.dk>
+#  Copyright (C) 2014, 2016-2021, Bue Vester-Andersen <bue@vester-andersen.dk>
 #
 #  This file is part of liblouis.
 #
@@ -18,29 +18,25 @@
 #  License along with liblouis. If not, see
 #  <http://www.gnu.org/licenses/>.
 #
-#------------
-#
-# This  is the Danish  6 dots grade 1 table for forward translation (literary / not back-translateable).
-# 
-# The output from this table is mainly ment for embossing and not suited for back-translation.
-#
-# Version: Bue Vester-Andersen, 200302
+# Version: Bue Vester-Andersen, December 2022
 
 ### Table Metadata
 
-#-name: Dansk fuldskrift 6-punkt
-#-index-name: Danish, uncontracted, 6-dot
-#-display-name: Danish 6-dot uncontracted braille
+#-name: Dansk fuldskrift 6-punkt 1993
+#-index-name: Danish, uncontracted, 6-dot, 1993
+#-display-name: Danish 6-dot uncontracted braille (1993 standard)
 
 #+language: da
 #+type: literary
 #+contraction: no
 #+grade: 1
 #+dots: 6
-#+direction: forward
+#+direction: both
+#+system: ddp
+#+version: 1993
 
 # Display opcodes
-include da-dk-octobraille.dis
+include da-dk-octobraille_1993.dis
 
 ### Spaces
 
@@ -81,13 +77,13 @@ lowercase \x00e5 16 LATIN LETTER A WITH RING ABOVE
 lowercase \x00e6 345 LATIN LETTER AE
 lowercase \x00f8 246 LATIN LETTER O WITH STROKE
 lowercase \x00fc 1256 LATIN LETTER U WITH DIAERESIS
-math \x00f7 256 DIVISION SIGN
 
-# Uppercase letters
 base uppercase \x00c5 \x00e5 LATIN LETTER A WITH RING ABOVE
 base uppercase \x00c6 \x00e6 LATIN LETTER AE
 base uppercase \x00d8 \x00f8 LATIN LETTER O WITH STROKE
-base uppercase \x00dc \x00fc LATIN CAPITAL LETTER U WITH DIAERESIS
+base uppercase \x00dc \x00fc LATIN LETTER U WITH DIAERESIS
+
+math \x00f7 256 DIVISION SIGN
 
 # cover all other Braille patterns
 include braille-patterns.cti
@@ -111,16 +107,16 @@ punctuation ^ 45-346 CIRCUMFLEX ACCENT
 punctuation _ 45-36 LOW LINE
 punctuation ` 4 GRAVE ACCENT
 punctuation { 45-246 LEFT CURLY BRACKET
-punctuation | 45-456 VERTICAL LINE
+punctuation | 4568 VERTICAL LINE
 punctuation } 45-135 RIGHT CURLY BRACKET
-punctuation ~ 45-6 TILDE
+punctuation ~ 467 TILDE (changed by pass 2 to not conflict with indicators
 
 # Misc unicode characters
-include da-dk-6miscChars.cti
+include da-dk-6miscChars_1993.cti
 
 # Litdigits
 include litdigits6Dots.uti
-
+midendnumericmodechars /,.:^
 undefined 26
 
 ### Braille indicators and special characters
@@ -148,24 +144,28 @@ endemphphrase bold after 56
 begemphphrase underline 56
 endemphphrase underline after 56
 
-capsletter 46 
+capsletter 46
 begcapsword 456
 endcapsword 6
+multind 6-46 letsign capsletter
+multind 46-6 capsletter letsign
+multind 6-456 letsign begcapsword
 
 numsign 3456
+multind 6-3456 letsign numsign
 
 #class of none-space characters that demand double dashes
 # Used in context lines later.
 #must be the first class defined.
 attribute charsWDoubleDash .,?!/:"'() # class w
 
-### Correct
+### Correct - forward translation
 
 # Chars that don't require a space before percent and permille:
 attribute charsBeforePercent "(\x201e\x0084\x201c\x0093\x201d\x0094\x00ab\x00bb #class x
 noback correct `["%"] *
-noback correct `["\x2030"] *
 noback correct !$sx["%"] " %"
+noback correct `["\x2030"] *
 noback correct !$sx["\x2030"] " \x2030"
 noback correct `["\x0089"] *
 noback correct !$sx["\x0089"] " \x2030"
@@ -186,43 +186,40 @@ noback correct %quotes "\""
 attribute apostrophes `\x201a\x0082\x2039\x008b\x2018\x0091\x2019\x0092\x203a\x009b\x00b4
 noback correct %apostrophes "'"
 
-# Convert most single caps to lowercase
+### Correct - backward translation
 
-#Special abbreviations with imbedded small letters.
-# Must be handled by case in this version of liblouis
-noback correct "KAbB" "KABB"
-noback correct "CUDiM" "CUDIM"
+# characters that may get mangled by the insertion of extra letsigns
+nofor correct "\x2818" "~"
+#nofor correct "\x282f" "&"
+#nofor correct "\x2814" "*"
 
-swapcc UpperLower ABCDEFGHIJKLMNOPQRSTUVWXYZ\x00c0\x00c1\x00c2\x00c3\x00c4\x00c5\x00c6\x00c7\x00c8\x00c9\x00ca\x00cb\x00cc\x00cd\x00ce\x00cf\x00d0\x00d1\x00d2\x00d3\x00d4\x00d5\x00d6\x00d8\x00d9\x00da\x00db\x00dc\x00dd\x00de\x008a\x008c \
-                  abcdefghijklmnopqrstuvwxyz\x00e0\x00e1\x00e2\x00e3\x00e4\x00e5\x00e6\x00e7\x00e8\x00e9\x00ea\x00eb\x00ec\x00ed\x00ee\x00ef\x00f0\x00f1\x00f2\x00f3\x00f4\x00f5\x00f6\x00f8\x00f9\x00fa\x00fb\x00fc\x00fd\x00fe\x009a\x009c
-swapcc UpperLowerExt \x0100\x0102\x0104\x0106\x0108\x010a\x010c\x010e\x0110\x0112\x0114\x0116\x0118\x011a\x011c\x011e\x0120\x0122\x0124\x0126\x0128\x012a\x012c\x012e\x0130\x0132\x0134\x0136\x0139\x013b\x013d\x013f\x0141\x0143\x0145\x0147\x014a\x014c\x014e\x0150\x0152\x0154\x0156\x0158\x015a\x015c\x015e\x0160\x0162\x0164\x0166\x0168\x016a\x016c\x016e\x0170\x0172\x0174\x0176\x0178\x0179\x017b\x017d\x0386\x0388\x0389\x038a\x038c\x038e\x038f\x0391\x0392\x0393\x0394\x0395\x0396\x0397\x0398\x0399\x039a\x039b\x039c\x039d\x039e\x039f\x03a0\x03a1\x03a3\x03a4\x03a5\x03a6\x03a7\x03a8\x03a9 \
-                     \x0101\x0103\x0105\x0107\x0109\x010b\x010d\x010f\x0111\x0113\x0115\x0117\x0119\x011b\x011d\x011f\x0121\x0123\x0125\x0127\x0129\x012b\x012d\x012f\x0131\x0133\x0135\x0137\x013a\x013c\x013e\x0140\x0142\x0144\x0146\x0148\x014b\x014d\x014f\x0151\x0153\x0155\x0157\x0159\x015b\x015d\x015f\x0161\x0163\x0165\x0167\x0169\x016b\x016d\x016f\x0171\x0173\x0175\x0177\x00ff\x017a\x017c\x017e\x03ac\x03ad\x03ae\x03af\x03cc\x03cd\x03ce\x03b1\x03b2\x03b3\x03b4\x03b5\x03b6\x03b7\x03b8\x03b9\x03ba\x03bb\x03bc\x03bd\x03be\x03bf\x03c0\x03c1\x03c3\x03c4\x03c5\x03c6\x03c7\x03c8\x03c9
+# Try to distinguish between times (\x00d7) and bullit (\x2022),
+# which share the same Braille representation.
+nofor correct `["\x00d7"] "\x2022" 
+# nofor correct $d["\s\x00d7\s"]$d * #apparently doesn't work now
+nofor correct ["\x00d7"]!$d "\x2022" 
+nofor correct !$d["\x00d7"] "\x2022" 
 
-# I is a special case
-noback correct _$sp["I"]$sp "i"
-noback correct `["I"]$sp "i"
-noback correct _$sp["I"]~ "i"
+nofor correct "\x28a0" ? # Extraneous endcaps signs
+#nofor correct "\x2820" ?
+nofor correct "~\\456/" "|"
 
-noback correct $sSpu[%UpperLower]$u %UpperLower
-noback correct `[%UpperLower]$u %UpperLower
-
-noback correct $sSpu[%UpperLowerExt]$u %UpperLowerExt
-noback correct `[%UpperLowerExt]$u %UpperLowerExt
+### Pass 1 - Forward and backward
 
 # Punctuations, math and numbers
-midnum , 2
-midnum . 3
+#midnum , 2
+#midnum . 3
 # the following rule is doubtful, but probably does not apply.
 #midnum - 36
 endnum - 36
-midnum / 34
-midnum : 25
+#midnum / 34
+#midnum : 25
 
 midnum ^ 45-346
-midnum \x00d7 45-3-3456
+midnum \x00d7 45-3
 
 # Remove space between § and numbers.
-begnum § 346
+noback begnum § 346
 begnum §\s 346
 begnum §§\s 346-346
 always §§ 346-346
@@ -232,6 +229,7 @@ prepunc " 2356
 postpunc " 2356
 prepunc - 36
 postpunc - 36
+nofor always \s-\s 0-36-36-0
 always :- 25-36
 always ;- 23-36
 always --- 36-36-36
@@ -253,17 +251,7 @@ always !!! 235-235-235
 always !!!! 235-235-235-235
 always !!!!! 235-235-235-235-235
 
-### Context rules
-
-# Substitutions for joinnum rules with common math signs
-noback context $dy$s["-"$s]$dy @36
-noback context $dy$s["+"$s]$dy @235
-noback context $dy$s["\x00d7"$s]$dy @3
-noback context $dy$s["\x00f7"$s]$dy @256
-noback context $dy$s["="$s]$dy @2356
-
-# Space on each side of = when between letters or punctuation.
-noback context $lp["="]$lp @0-2356-0
+### Context rules - forward translation
 
 # Ensure two dashes where appropriate.
 noback context $w["-"]$w @36
@@ -277,18 +265,41 @@ noback context `["-"]~ @36-36
 noback context $dy[]$u @6
 noback context $dy$Spm.[]$u @6
 
-# Ensure dot 6 as nocaps
-#noback context $U2-50[]$u @6
+### context - backward translation
 
-### Pass 2
+# Ensure the correct number of dashes
+nofor context @36[@36-36] "--"
+nofor context [@36-36]@36 "--"
+nofor context $w[@36-36]$w "--"
+nofor context $sw[@36-36]$sw "-"
+nofor context `[@36-36]$sw "-"
+nofor context $sw[@36-36]~ "-"
+nofor context `@36-36~ "-"
+
+
+### Pass 2 - forward translation
+
+# Correct tilde and vertical line
+noback pass2 @467 @45-6
+noback pass2 @4568 @45-456
 
 noback pass2 @6-5 @5 # no letsign before letters with accent
 noback pass2 @6-46-5 @46-5 # no letsign before cap letters with accent
-noback pass2 @45-6-46 * # don't touch tilde before capnoback pass2 @6-46 @46-6 # Ensure correct order
+noback pass2 @6-46 @46-6 # Ensure correct order
+
+ ### Pass 2 - backward
+
+### Pass 3 - forward translation
 
 # Ensure there is only one letsign
- noback pass2 @6-6 @6
+ noback pass3 @6-6 @6
 
 # Ensure there is only one emphasis sign
-noback pass2 @56-56 @56
-noback pass2 @56-56-56 @56
+noback pass3 @56-56 @56
+noback pass3 @56-56-56 @56
+
+### Pass 3 - backward translation
+
+# save ~ and |  before inserting extra letsigns and endcapsword in pass 2.
+nofor pass3 @45-6 @468 # Create alternative representation of "~"
+nofor pass3 @45-456 @4568

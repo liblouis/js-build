@@ -1,6 +1,6 @@
-# Liblouis: Danish table for 6 dots grade 1.5 (grade 2l) forward and backward translation 
+# Liblouis: Danish table for 6 dots grade 2 forward translation (literary) 1993
 #
-#  Copyright (C) 2014-2020, Bue Vester-Andersen <bue@vester-andersen.dk>
+#  Copyright (C) 2014, 2016-2021, Bue Vester-Andersen <bue@vester-andersen.dk>
 #
 #  This file is part of liblouis.
 #
@@ -17,23 +17,29 @@
 #  You should have received a copy of the GNU Lesser General Public
 #  License along with liblouis. If not, see
 #  <http://www.gnu.org/licenses/>.
+# This table is for 6 dots grade 2 literary Braille, embossable, not meant for back-translation.
 #
-# Version: Bue Vester-Andersen, 200302
+# Version: Bue Vester-Andersen, December 2022
 
 ### Table Metadata
 
-#-index-name: Danish, partially contracted, 6-dot
-#-display-name: Danish 6-dot partially contracted braille
+#-name: Dansk forkortet 6-punkt 1993
+#-index-name: Danish, contracted, 6-dot, 1993
+#-display-name: Danish 6-dot contracted braille (1993 standard)
 
 #+language: da
 #+type: literary
-#+contraction: partial
-#+grade: 1.5
+#+contraction: full
+#+grade: 2
 #+dots: 6
-#+direction: both
+#+direction: forward
+#+system: ddp
+#+version: 1993
+
+#-has-nocross: yes
 
 # Display opcodes
-include da-dk-octobraille.dis
+include da-dk-octobraille_1993.dis
 
 ### Spaces
 
@@ -104,35 +110,35 @@ lowercase \x00f8 246 LATIN LETTER O WITH STROKE
 
 # Uppercase letters
 base uppercase A a
-base uppercase B b 1
-base uppercase C c 1
-base uppercase D d 14
-base uppercase E e 1
-base uppercase F f 12
-base uppercase G g 124
-base uppercase H h 12
-base uppercase I i 2
-base uppercase J j 24
-base uppercase K k 1
-base uppercase L l 12
-base uppercase M m 13
-base uppercase N n 134
-base uppercase O o 13
-base uppercase P p 123
-base uppercase R r 123
-base uppercase S s 23
-base uppercase T t 234
-base uppercase U u 13
-base uppercase V v 123
-base uppercase Y y 13456
-base uppercase Q q 12345
-base uppercase W w 2456
-base uppercase X x 1346
-base uppercase Z z 1356
-base uppercase \x00dc \x00fc 12567
+base uppercase B b
+base uppercase C c
+base uppercase D d
+base uppercase E e
+base uppercase F f
+base uppercase G g
+base uppercase H h
+base uppercase I i
+base uppercase J j
+base uppercase K k
+base uppercase L l
+base uppercase M m
+base uppercase N n
+base uppercase O o
+base uppercase P p
+base uppercase R r
+base uppercase S s
+base uppercase T t
+base uppercase U u
+base uppercase V v
+base uppercase Y y
+base uppercase Q q
+base uppercase W w
+base uppercase X x
+base uppercase Z z
+base uppercase \x00dc \x00fc
 base uppercase \x00c5 \x00e5 LATIN LETTER A WITH RING ABOVE
 base uppercase \x00c6 \x00e6 LATIN LETTER AE
-base uppercase \x00d8 \x00f8 LATIN LETTER O WITH STROKE
+base uppercase \x00d8 \x00f8 LATIN LETTER O WITH STROKE 
 
 # cover all other Braille patterns
 include braille-patterns.cti
@@ -160,11 +166,10 @@ punctuation } 45-135 RIGHT CURLY BRACKET
 math \x00f7 45-256 DIVISION SIGN
 
 # Misc unicode characters
-include da-dk-6miscChars.cti
+include da-dk-6miscChars_1993.cti
 
 # Litdigits
 include litdigits6Dots.uti
-midendnumericmodechars /,.:^
 
 undefined 26
 
@@ -173,8 +178,6 @@ undefined 26
 #hyphen - 36
 
 letsign 6
-
-# No letsign before capital letters or letters with accents
 
 noletsign Ii\x00df\x0149\x0152\x0153
 
@@ -194,10 +197,13 @@ endemphphrase underline after 56
 
 capsletter 46
 begcapsword 456
-endcapsword 6
+endcapsword 68 # Used during back-translation to stop overflow of capsword
 multind 6-46 letsign capsletter
 multind 46-6 capsletter letsign
 multind 6-456 letsign begcapsword
+multind 68-6-46 endcapsword letsign capsletter
+multind 68-6-456 endcapsword letsign begcapsword
+multind 68-6 endcapsword letsign
 
 numsign 3456
 multind 6-3456 letsign numsign
@@ -234,25 +240,45 @@ noback correct %quotes "\""
 attribute apostrophes `\x201a\x0082\x2039\x008b\x2018\x0091\x2019\x0092\x203a\x009b\x00b4
 noback correct %apostrophes "'"
 
-### Correct - backward translation
+# Convert most single caps to lowercase
 
-# characters that may get mangled by the insertion of extra letsigns
-nofor correct "\x2818" "~"
-#nofor correct "\x282f" "&"
-#nofor correct "\x2814" "*"
+#Special abbreviations with imbedded small letters.
+# Must be handled by case in this version of liblouis
+noback correct "KAbB" "KABB"
+noback correct "CUDiM" "CUDIM"
 
-# Try to distinguish between times (\x00d7) and bullit (\x2022),
-# which share the same Braille representation.
-nofor correct `["\x00d7"] "\x2022" 
-# nofor correct $d["\s\x00d7\s"]$d * #apparently doesn't work now
-nofor correct ["\x00d7"]!$d "\x2022" 
-nofor correct !$d["\x00d7"] "\x2022" 
+swapcc UpperLower ABCDEFGHIJKLMNOPQRSTUVWXYZ\x00c0\x00c1\x00c2\x00c3\x00c4\x00c5\x00c6\x00c7\x00c8\x00c9\x00ca\x00cb\x00cc\x00cd\x00ce\x00cf\x00d0\x00d1\x00d2\x00d3\x00d4\x00d5\x00d6\x00d8\x00d9\x00da\x00db\x00dc\x00dd\x00de\x008a\x008c \
+                  abcdefghijklmnopqrstuvwxyz\x00e0\x00e1\x00e2\x00e3\x00e4\x00e5\x00e6\x00e7\x00e8\x00e9\x00ea\x00eb\x00ec\x00ed\x00ee\x00ef\x00f0\x00f1\x00f2\x00f3\x00f4\x00f5\x00f6\x00f8\x00f9\x00fa\x00fb\x00fc\x00fd\x00fe\x009a\x009c
+swapcc UpperLowerExt \x0100\x0102\x0104\x0106\x0108\x010a\x010c\x010e\x0110\x0112\x0114\x0116\x0118\x011a\x011c\x011e\x0120\x0122\x0124\x0126\x0128\x012a\x012c\x012e\x0130\x0132\x0134\x0136\x0139\x013b\x013d\x013f\x0141\x0143\x0145\x0147\x014a\x014c\x014e\x0150\x0152\x0154\x0156\x0158\x015a\x015c\x015e\x0160\x0162\x0164\x0166\x0168\x016a\x016c\x016e\x0170\x0172\x0174\x0176\x0178\x0179\x017b\x017d\x0386\x0388\x0389\x038a\x038c\x038e\x038f\x0391\x0392\x0393\x0394\x0395\x0396\x0397\x0398\x0399\x039a\x039b\x039c\x039d\x039e\x039f\x03a0\x03a1\x03a3\x03a4\x03a5\x03a6\x03a7\x03a8\x03a9 \
+                     \x0101\x0103\x0105\x0107\x0109\x010b\x010d\x010f\x0111\x0113\x0115\x0117\x0119\x011b\x011d\x011f\x0121\x0123\x0125\x0127\x0129\x012b\x012d\x012f\x0131\x0133\x0135\x0137\x013a\x013c\x013e\x0140\x0142\x0144\x0146\x0148\x014b\x014d\x014f\x0151\x0153\x0155\x0157\x0159\x015b\x015d\x015f\x0161\x0163\x0165\x0167\x0169\x016b\x016d\x016f\x0171\x0173\x0175\x0177\x00ff\x017a\x017c\x017e\x03ac\x03ad\x03ae\x03af\x03cc\x03cd\x03ce\x03b1\x03b2\x03b3\x03b4\x03b5\x03b6\x03b7\x03b8\x03b9\x03ba\x03bb\x03bc\x03bd\x03be\x03bf\x03c0\x03c1\x03c3\x03c4\x03c5\x03c6\x03c7\x03c8\x03c9
 
-nofor correct "\x28a0" ? # Extraneous endcaps signs
-#nofor correct "\x2820" ?
-nofor correct "~\\456/" "|"
+# I is a special case
+noback correct _$sp["I"]$sp "i"
+noback correct `["I"]$sp "i"
+noback correct _$sp["I"]~ "i"
 
-### Pass 1 - Forward and backward
+noback correct $sSpu[%UpperLower]$u %UpperLower
+noback correct `[%UpperLower]$u %UpperLower
+
+noback correct $sSpu[%UpperLowerExt]$u %UpperLowerExt
+noback correct `[%UpperLowerExt]$u %UpperLowerExt
+
+
+### Pass 1 
+
+# Punctuations, math and numbers
+midnum , 2
+midnum . 3
+# the following rule is doubtful, but probably does not apply.
+#midnum - 36
+endnum - 36
+midnum / 34
+midnum : 25
+nofor midnum ^ 346
+nofor midnum ^ 45-346
+
+midnum ^ 45-346
+midnum \x00d7 45-3-3456
 
 # Remove space between § and numbers.
 noback begnum § 346
@@ -260,38 +286,13 @@ begnum §\s 346
 begnum §§\s 346-346
 always §§ 346-346
 
-# Punctuations, math and numbers
-#midnum , 2
-#midnum . 3
-# the following rule is doubtful, but probably does not apply.
-#midnum - 36
-endnum - 36
-#midnum / 34
-#midnum : 25
-nofor midnum ^ 346
-nofor midnum ^ 45-346
-
-midnum ^ 45-346
-midnum \x00d7 45-3
-
-# various back rules for math signs etc.
-nofor midnum % 0-245-356-0-3456
-nofor endnum % 0-245-356
-nofor endnum \x2030 0-245-356-356
-nofor midnum \s 3456
-nofor midnum \x00d7 45-3-3456
-nofor midnum \x00d7 45-3
-nofor midnum \x00d7 3-3456
-
 # Punctuation
 prepunc " 2356
 postpunc " 2356
 always /\s 6-34-0
 always \s/ 0-6-34
-nofor always / 6-34
 prepunc - 36
 postpunc - 36
-nofor always \s-\s 0-36-36-0
 always :- 25-36
 always ;- 23-36
 always --- 36-36-36
@@ -305,6 +306,7 @@ before punctuation before sign always ( 6-236
 # these characters must be separated from ")" by a letsign.
 attribute SepToRightpar Jj%'\x2030\x0089\x201a\x0082\x2039\x009b\x2018\x0091\x2019\x0092\x203a\x009b
 after SepToRightpar always ) 6-356
+after punctuation after sign always ) 6-356
 
 prepunc ( 236
 postpunc ) 356
@@ -312,17 +314,23 @@ always .) 3-356
 always ( 6-236
 always ) 6-356
 
-# extra back rules for ")"
-nofor after punctuation always ) 356
-nofor always \x00b0 4-356
-nofor always ') 4-6-356
-nofor always ") 2356-356
-nofor endword j) 245-356
-nofor always ) 6-356
-
 always ... 3-3-3
 
-#inverted exclamation
+# Exclamation and "fra"
+always fra! 124-1235-1-235
+always !fra 235-124-1235-1
+always ?! 26-6-235
+always )! 356-6-235
+always (!) 236-6-235-356
+always "fra" 2356-124-1235-1-2356
+always "!" 2356-6-235-2356
+always !! 235-235
+always !!! 235-235-235
+always !!!! 235-235-235-235
+always !!!!! 235-235-235-235-235
+always '! 4-6-235
+always \s! 0-6-235
+prepunc ! 6-235
 always \x00a1 6-256
 
 ### Contractions ###
@@ -355,69 +363,387 @@ nocont .wav
 nocont .tar
 nocont .zip
 
+# Ensure no contractions in English ordinal numbers
+endnum nd 6-1345-145
+endnum st 6-234-2345
+endnum ve 6-1236-15
+
 #Words
+word af 356
+always 'af 4-1-124
+word aldrig 1-35
+word aig =
+word alle 1-15
+begnum ae 6-1-15
+contraction ae
+word allerede 1-123-1235
+begnum alr 6-1-123-1235
+contraction alr
+word alligevel 1-123-1236
+begnum alv 6-1-123-1236
+contraction alv
+word altid 1-2345-145
+begnum atd 6-1-2345-145
+contraction atd
+word altså 1-16
+begnum aå 6-1-16
+contraction aå
 word at 1
+
+word blevet 12-2345
+begnum bt 6-12-2345
+contraction bt
+word blev 12-1236
+begnum bv 6-12-1236
+contraction bv
+word blive 12-3456
+word bve 12-1236-15
 word bliver 12
-word den 12346
-word der 23456
-word det 2346
-word de 1456
+
+word derefter 23456-1356
+word derst =
+word deres 256
+word derfor 23456-124
+word derf =
+word derigennem 23456-24-12456
+word derige 1456-1235-24-12456
+word dermed 23456-134
+word derm =
+word derned 23456-1246
+word derne =
+word derop 23456-135
+word dero =
+word derover 23456-1346
+word deror =
+word derpå 23456-1234
+word derp =
+word dersom 23456-234
+word ders =
+word dertil 23456-2345
+word dert =
+word derunder 23456-12345
+word derved 23456-1236
+word din 145-1345
+begnum dn 6-145-1345
+contraction dn
+word disse 145-234
+begnum ds 6-145-234
+contraction ds
+word dit 145-2345
+begnum dt 6-145-2345
+contraction dt
 word du 145
+
 word efter 1356
 word eller 15
-word en 126
-word er 156
-word et 346
+word endnu 15-136
+begnum eu 6-15-136
+contraction eu
+
+word fik 124-13
+begnum fk 6-124-13
+contraction fk
+word fordi 124-145
+begnum fd 6-124-145
+contraction fd
+word forskellige 124-123456-15
+word fske =
+word forskelligt 124-123456-2345
+word fskt =
+word forskellig 124-123456
+word fsk =
 word for 124
+word fra 235
+word første 124-1356-15
+word først 124-1356
 word før 246
+
+word ganske 1245-123456
 word gennem 12456
+word ge =
+word gik 1245-13
+begnum gk 6-1245-13
+contraction gk
 word gør 1245
+
+word ham 236
+word hans 13456-234
+begnum ys 6-13456-234
+contraction ys
 word han 13456
 word har 125
+word havde 125-1456
+word hde =
+word have 125-3456
+word hve =
+word helt 125-2345
+begnum ht 6-125-2345
+contraction ht
+word hendes 125-234
+begnum hs 6-125-234
+contraction hs
+word hende 125-145
+begnum hd 6-125-145
+contraction hd
 word hun 136
 word hvad 2456
+word hv =
+word hvis 2456-234
+word hvs =
+word hvordan 34-1
+word hvora 34-6-1
+word hvorefter 34-1356
+word hvorst 34-234-2345
+word hvorfor 34-124
+word hvorf 34-6-124
+word hvorigennem 34-24-12456
+word hvorledes 34-15
+word hvore 34-6-15
+word hvormed 34-134
+word hvorm 34-6-134
+word hvornår 34-1345
+word hvorn 34-6-1345
+word hvorover 34-1346
+word hvoror 34-135-1235
+word hvorpå 34-1234
+word hvorp 34-6-1234
+word hvortil 34-2345
+word hvort 34-6-2345
+word hvorunder 34-12345
+word hvornd 34-1345-145
+word hvorved 34-1236
+word hvorv 34-6-1236
 word hvor 34
+
+word igennem 24-12456
+word ige =
+word igen 35
+word (igen) 236-24-1245-126-356
+word ig =
+word ikke 24-13
+begnum ik 6-24-13
+contraction ik
+word imidlertid 24-24
+begnum ii 6-24-24
+contraction ii
+
 word jeg 245
+word jeg) 245-6-356
+
 word kan 13
+word kommer 13-156
+word ker =
+word kommet 13-346
+word ket =
+word komme 13-146
+word kme =
+word kom 13-134
+begnum km 6-13-134
+contraction km
+word kunne 13-1246
+word kne =
+
+word ligesom 123-234
+begnum ls 6-123-234
+contraction ls
 word lige 123
+word lille 123-123
+begnum ll 6-123-123
+contraction ll
+
+word mange 134-12456
+word mge =
 word med 134
+word megen 146-126
+word meen =
+word meget 146-346
+word meet =
+word mellem 146-134
+word mem =
 word men 146
+word me =
+word min 134-1345
+begnum mn 6-134-1345
+contraction mn
+word mit 134-2345
+begnum mt 6-145-2345
+contraction mt
+word måske 134-123456
+word msk =
+word måtte 134-1256
+word mte =
+
+word naturligvis 1345-2345-1236
+begnum ntv 6-1345-2345-1236
+contraction ntv
+word nd =
 word ned 1246
+word ne =
+word nogen 1345-1345
+begnum nn 6-1345-1345
+contraction nn
+word noget 1345-2345
+begnum nt 6-1345-2345
+contraction nt
+word nogle 1345-123-15
+begnum nle 6-1345-123-15
+contraction nle
 word når 1345
+
+word også 14-16
+begnum cå 6-14-16
+contraction cå
 word og 14
+word omkring 135-134-13
+begnum omk 6-135-134-13
+contraction omk
 word op 135
+word or =
 word over 1346
+
 word på 1234
+
 word ret 12356
+word re 1235-15
+word rigtige 1235-12456
+word rge =
+word rigtigt 1235-2345
+begnum rt 6-1235-2345
+contraction rt
 word rigtig 1235
+
+word sagde 234-1456
+word sammen 234-134
+begnum sm 6-234-134
+contraction sm
+word samme 234-146
+word sme =
+word selvfølgelig 234-1236-124
+begnum svf 6-234-1236-124
+contraction svf
+word selv 234-1236
+begnum sv 6-234-1236
+contraction sv
+word sidste 234-1356-15
+word sste =
+word sidst 234-1356
+word sst =
+word sin 234-1345
+begnum sn 6-234-1345
+contraction sn
+word sit 234-2345
+begnum st 6-234-2345
+contraction st
 word skal 123456
+word sk =
+word skulle 123456-123-15
+word skle =
+word snart 234-1235
+begnum sr 6-234-1235
+contraction sr
 word som 234
+word sådan 16-1
+begnum åa 6-16-1
+contraction åa
+word således 16-15
+begnum åe 6-16-15
+contraction åe
 word så 16
-word te 1256
+
+word tid 2345-145
+begnum td 6-2345-145
+contraction td
+word tilbage 2345-12
+begnum tb 6-2345-12
+contraction tb
 word til 2345
+
 word under 12345
+
+word var- =
+word var. =
+word var 36
 word ve 3456
 word ved 1236
+word ville 1236-123-15
+begnum vle 6-1236-123-15
+contraction vle
+word vil 1236-123
+begnum vl 6-1236-123
+contraction vl
+word været 1236-2345
+begnum vt 6-1236-2345
+contraction vt
 word være 345
+
+#Part words
+nocross always den 12346
+nocross always der 23456
+nocross always det 2346
+nocross always de 1456
+nocross always en 126
+nocross always er 156
+nocross always et 346
+nocross always ge 12456
+#nocross always hvor 34
+nocross always hv 2456
+nocross always ig 35
+nocross always me 146
+nocross always nd 12345
+nocross always ne 1246
+nocross always or 1346
+nocross always re 12356
+nocross always sk 123456
+nocross always st 1356
+nocross always te 1256
+
+# Numsign/"ve", special case when back-translating
+noback nocross always ve 3456
+
+# Additional words containing "hvor"
+# these are made explicit in 6-dots to handle / better
+
+word hvoraf 34-1-124
+word hvorfra 34-124-1235-1
+word hvorhen 34-125-126
+word hvorhenne 34-125-126-1246
+word hvori 34-24
+word hvoriblandt 34-24-12-123-1-12345-2345
+word hvorimellem 34-24-146-123-123-15-134
+word hvorimod 34-24-134-135-145
+word hvorlænge 34-123-345-1345-12456
+word hvormange 34-134-1-1345-12456
+word hvorom 34-135-134
+word hvormeget 34-146-1245-346
+word hvorudfra 34-136-145-124-1235-1
+word hvorvidt 34-1236-24-145-2345
+word ihvorvel 24-34-3456-123
 
 # Common combinations of one word contractions with slash
 word af/på 356-34-1234
+word af/på 356-34-68-1234
 word du/i 145-34-24
+word du/i 145-34-68-24
 word eller/og 15-34-14
+word eller/og 15-34-68-14
 word fra/til 235-34-2345
+word fra/til 235-34-68-2345
 word han/hun 13456-34-136
+word han/hun 13456-34-68-136
 word hun/han 136-34-13456
+word hun/han 136-34-68-13456
 word i/du 24-34-145
+word i/du 24-34-68-145
 word og/eller 14-34-15
+word og/eller 14-34-68-15
 word over/under 1346-34-12345
+word over/under 1346-34-68-12345
 word på/af 1234-34-356
+word på/af 1234-34-68-356
 word til/fra 2345-34-235
+word til/fra 2345-34-68-235
 word under/over 12345-34-1346
-
-# no backtrans of ^1 and `2. use contractions
-nofor always eta 346-1
-nofor always etb 346-12
-always etc 346-14
+word under/over 12345-34-68-1346
 
 # Ensure no one-letter word contraction before or after a dash
 
@@ -517,6 +843,16 @@ midword -ved- 36-1236-36
 
 ### Context rules - forward translation
 
+# Substitutions for joinnum rules with common math signs
+noback context $dy$s["-"$s]$dy @36
+noback context $dy$s["+"$s]$dy @235
+noback context $dy$s["\x00d7"$s]$dy @3
+noback context $dy$s["\x00f7"$s]$dy @256
+noback context $dy$s["="$s]$dy @2356
+
+# Space on each side of = when between letters or punctuation.
+noback context $lp["="]$lp @0-2356-0
+
 # Exclamation at beginning of string
 noback context `["!"] @6-235
 
@@ -546,19 +882,8 @@ noback context $dy$Spm["te"] @6-2345-15
 
 #ensure dot 6 between a digit and a letter
 noback context $dy[]$u @6
-noback context $dy$Spm.[]$u @6
-
-### context - backward translation
-
-# Ensure the correct number of dashes
-nofor context @36[@36-36] "--"
-nofor context [@36-36]@36 "--"
-nofor context $w[@36-36]$w "--"
-nofor context $sw[@36-36]$sw "-"
-nofor context `[@36-36]$sw "-"
-nofor context $sw[@36-36]~ "-"
-nofor context `@36-36~ "-"
-
+# Not letsign after digit + punctuation in literary braille
+# noback context $dy$Spm.[]$u @6
 
 ### Pass 2 - forward translation
 
@@ -571,31 +896,15 @@ noback pass2 @13467 @6-1346
 noback pass2 @13567 @6-1356
 noback pass2 @12567 @6-1256
 
+# Show endcapsword as dot 6 (letsign)
+noback pass2 @68 @6
+
 noback pass2 @6-5 @5 # no letsign before letters with accent
 noback pass2 @6-46-5 @46-5 # no letsign before cap letters with accent
 noback pass2 _$D[@6-46-6] *
 noback pass2 _$D[@6-46] *
 noback pass2 @6-46-6 @46-6 # Ensure correct order and no double letsign
 noback pass2 @6-46 @46-6 # Ensure correct order
-
- ### Pass 2 - backward
-
-# Insert letsign between number (with extra punctuation) and capsletter sign
-#nofor pass2 @3456$l.$Spm$l.@3$l.@3[]@46 @6
-#nofor pass2 @3456$l.$Spm$l.@3[]@46 @6
-#nofor pass2 @3456$l.$Spm$Spm[]@46 @6
-#nofor pass2 @3456$l.$Spm[]@46 @6
-
-## Insert letsign between number (with extra punctuation) and capsword sign
-#nofor pass2 @3456$l.$Spm$l.@3$l.@3[]@456 @6
-#nofor pass2 @3456$l.$Spm$l.@34$l.@34[]@456 @6
-#nofor pass2 @3456$l.$Spm$l.@36$l.@36[]@456 @6
-#nofor pass2 @3456$l.$Spm$l.@3[]@456 @6
-#nofor pass2 @3456$l.$Spm$l.@34[]@456 @6
-#nofor pass2 @3456$l.$Spm$l.@36[]@456 @6
-#nofor pass2 @3456$l.$Spm$Spm[]@456 @6
-#nofor pass2 @3456$l.$Spm[]@456 @6
-#nofor pass2 @3456$l.[]@456 @6
 
 ### Pass 3 - forward translation
 
@@ -606,15 +915,6 @@ noback pass2 @6-46 @46-6 # Ensure correct order
 noback pass3 @56-56 @56
 noback pass3 @56-56-56 @56
 
-### Pass 3 - backward translation
 
-# Save letters that have been defined with letsign as part of their definitions
-nofor pass3 @6-12345 @6-123457
-nofor pass3 @6-2456 @6-24567
-nofor pass3 @6-1346 @6-13467
-nofor pass3 @6-1356 @13567
-nofor pass3 @6-1256 @6-12567
-
-# save ~ and |  before inserting extra letsigns and endcapsword in pass 2.
-nofor pass3 @45-6 @467 # Create alternative representation of "~"
-nofor pass3 @45-456 @4568
+# Include hyphenation file as the last thing
+include da-dk-g2_1993.dic
