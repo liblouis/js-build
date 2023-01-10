@@ -14,5 +14,5 @@
     "type": "git",
     "url": "git://github.com/liblouis/js-build.git"
   },
-  "main": "./build-no-tables-utf16.js"
+  "main": "./build-no-tables-utf32.js"
 }
