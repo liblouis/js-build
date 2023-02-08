@@ -5275,24 +5275,30 @@ function getTempRet0() {
 
 function _lou_setDataPath($0) {
  $0 = $0|0;
- var $1 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, label = 0, sp = 0;
+ var $1 = 0, $10 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $2 = $0;
  HEAP32[3292] = 0;
  $3 = $2;
  $4 = ($3|0)==(0|0);
- if ($4) {
-  $1 = 0;
- } else {
+ if (!($4)) {
   $5 = $2;
-  (_strcpy(39062,$5)|0);
-  HEAP32[3292] = 39062;
-  $6 = HEAP32[3292]|0;
-  $1 = $6;
+  $6 = (_strlen($5)|0);
+  $7 = ($6>>>0)>=(2048);
+  if (!($7)) {
+   $8 = $2;
+   (_strcpy(39062,$8)|0);
+   HEAP32[3292] = 39062;
+   $9 = HEAP32[3292]|0;
+   $1 = $9;
+   $10 = $1;
+   STACKTOP = sp;return ($10|0);
+  }
  }
- $7 = $1;
- STACKTOP = sp;return ($7|0);
+ $1 = 0;
+ $10 = $1;
+ STACKTOP = sp;return ($10|0);
 }
 function _lou_getDataPath() {
  var $0 = 0, label = 0, sp = 0;
