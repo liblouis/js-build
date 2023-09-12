@@ -18354,7 +18354,7 @@ function _addCharacterClass($0,$1,$2,$3,$4) {
        }
       }
       $42 = $6;
-      _compileWarning($42,6684,$vararg_buffer);
+      _compileError($42,6684,$vararg_buffer);
      }
     } while(0);
     $43 = $11;
