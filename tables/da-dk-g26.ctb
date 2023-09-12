@@ -1,6 +1,6 @@
 # Liblouis: Danish table for 6 dots grade 2 forward and backward translation (2022)
 #
-#  Copyright (C) 2014, 2016-2022, Bue Vester-Andersen <bue@vester-andersen.dk>
+#  Copyright (C) 2014, 2016-2023, Bue Vester-Andersen <bue@vester-andersen.dk>
 #
 #  This file is part of liblouis.
 #
@@ -284,6 +284,7 @@ nofor endnum \x2030 0-245-356-356
 nofor midnum \x00d7 45-35
 
 # Punctuation
+postpunc ! 235
 prepunc " 2356
 postpunc " 2356
 always /\s 56-34-0
