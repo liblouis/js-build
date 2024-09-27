@@ -7520,6 +7520,7 @@ function __lou_getTranslationTable($0) {
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $2 = sp;
  $1 = $0;
+ HEAP32[$2>>2] = 0;
  $3 = $1;
  _getTable($3,0,$2,0);
  $4 = HEAP32[$2>>2]|0;
@@ -7549,6 +7550,7 @@ function __lou_getTable($0,$1,$2,$3) {
  $5 = $1;
  $6 = $2;
  $7 = $3;
+ HEAP32[$8>>2] = 0;
  HEAP32[$9>>2] = 0;
  $10 = $4;
  $11 = $5;
@@ -8198,6 +8200,8 @@ function _lou_getTable($0) {
  $3 = sp + 4|0;
  $4 = sp;
  $2 = $0;
+ HEAP32[$3>>2] = 0;
+ HEAP32[$4>>2] = 0;
  $5 = $2;
  $6 = $2;
  __lou_getTable($5,$6,$3,$4);
@@ -8225,6 +8229,7 @@ function __lou_getDisplayTable($0) {
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $2 = sp;
  $1 = $0;
+ HEAP32[$2>>2] = 0;
  $3 = $1;
  _getTable(0,$3,0,$2);
  $4 = HEAP32[$2>>2]|0;
