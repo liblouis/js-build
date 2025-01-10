@@ -616,9 +616,7 @@ nofor  sign \x2826 236      ⠦
 
 noback sign \x2827 1236e
 nofor  sign \x2827 1236     ⠧
-
-noback sign \x2828 46e
-nofor  sign \x2828 46       ⠨
+sign        \x2828   46e       ⠨
 
 noback sign \x2829 146e
 nofor  sign \x2829 146      ⠩
