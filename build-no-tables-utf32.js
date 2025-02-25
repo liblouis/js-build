@@ -54746,7 +54746,7 @@ function _parseQuery($0) {
       $123 = ($122|0)!=(0|0);
       $or$cond = $121 | $123;
       if ($or$cond) {
-       label = 39;
+       label = 38;
        break;
       }
       $124 = $9;
@@ -54760,7 +54760,7 @@ function _parseQuery($0) {
       $130 = (_isValidChar($129)|0);
       $131 = ($130|0)!=(0);
       if (!($131)) {
-       label = 39;
+       label = 38;
        break;
       }
       $132 = $8;
@@ -54773,7 +54773,7 @@ function _parseQuery($0) {
      $135 = (_isValidChar($134)|0);
      $136 = ($135|0)!=(0);
      if (!($136)) {
-      label = 39;
+      label = 38;
       break;
      }
      $137 = $5;
@@ -54841,7 +54841,7 @@ function _parseQuery($0) {
    do {
     if ($64) {
      if (!($66)) {
-      label = 39;
+      label = 38;
       break L1;
      }
      $67 = $11;
@@ -54910,7 +54910,8 @@ function _parseQuery($0) {
      }
     } else {
      if (!($66)) {
-      $11 = 9992;
+      label = 38;
+      break L1;
      }
      $99 = $12;
      $100 = $11;
@@ -54950,7 +54951,7 @@ function _parseQuery($0) {
   $114 = $113 << 24 >> 24;
   $115 = ($114|0)==(0);
   if ($115) {
-   label = 31;
+   label = 30;
    break;
   }
  }
@@ -54964,7 +54965,7 @@ function _parseQuery($0) {
   $179 = $1;
   STACKTOP = sp;return ($179|0);
  }
- else if ((label|0) == 31) {
+ else if ((label|0) == 30) {
   $146 = $10;
   $147 = ($146|0)!=(0);
   if (!($147)) {
@@ -55023,7 +55024,7 @@ function _parseQuery($0) {
   $179 = $1;
   STACKTOP = sp;return ($179|0);
  }
- else if ((label|0) == 39) {
+ else if ((label|0) == 38) {
   $174 = $8;
   $175 = HEAP8[$174>>0]|0;
   $176 = $175 << 24 >> 24;
