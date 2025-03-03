@@ -49782,7 +49782,7 @@ function _back_passDoTest($0,$1,$2,$3,$4,$5,$6,$7) {
   STACKTOP = sp;return ($381|0);
  }
  else if ((label|0) == 51) {
-  $8 = 1;
+  $8 = 0;
   $381 = $8;
   STACKTOP = sp;return ($381|0);
  }
