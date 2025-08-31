@@ -6977,7 +6977,7 @@ function __lou_defaultTableResolver($0,$1) {
  $71 = $8;
  _rpl_free($71);
  $72 = $6;
- _free_tablefiles($72);
+ _lou_freeTableFiles($72);
  $2 = 0;
  $86 = $2;
  STACKTOP = sp;return ($86|0);
@@ -7315,7 +7315,7 @@ function _resolveSubtable($0,$1,$2) {
  $154 = $3;
  STACKTOP = sp;return ($154|0);
 }
-function _free_tablefiles($0) {
+function _lou_freeTableFiles($0) {
  $0 = $0|0;
  var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
@@ -7369,7 +7369,7 @@ function __lou_resolveTable($0,$1) {
   STACKTOP = sp;return ($15|0);
  }
  $14 = $4;
- _free_tablefiles($14);
+ _lou_freeTableFiles($14);
  $15 = $5;
  STACKTOP = sp;return ($15|0);
 }
@@ -7535,6 +7535,16 @@ function __lou_getTranslationTable($0) {
  }
  $9 = HEAP32[$2>>2]|0;
  STACKTOP = sp;return ($9|0);
+}
+function _lou_freeEmphClasses($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _rpl_free($2);
+ STACKTOP = sp;return;
 }
 function __lou_getTable($0,$1,$2,$3) {
  $0 = $0|0;
@@ -8445,7 +8455,7 @@ function _compileTable($0,$1,$2,$3) {
      $10 = $104;
     }
     $105 = $9;
-    _free_tablefiles($105);
+    _lou_freeTableFiles($105);
     $9 = 0;
    }
    $106 = $7;
@@ -8486,7 +8496,7 @@ function _compileTable($0,$1,$2,$3) {
   }
  } while(0);
  $124 = $9;
- _free_tablefiles($124);
+ _lou_freeTableFiles($124);
  $125 = HEAP32[5489]|0;
  $126 = ($125|0)!=(0);
  if ($126) {
@@ -17130,7 +17140,7 @@ function _includeFile($0,$1,$2,$3) {
  $41 = ($40|0)!=(0|0);
  $42 = $11;
  if ($41) {
-  _free_tablefiles($42);
+  _lou_freeTableFiles($42);
   $43 = $5;
   HEAP32[$vararg_buffer1>>2] = $10;
   _compileError($43,7684,$vararg_buffer1);
@@ -17144,7 +17154,7 @@ function _includeFile($0,$1,$2,$3) {
  $47 = (_compileFile($44,$45,$46)|0);
  $12 = $47;
  $48 = $11;
- _free_tablefiles($48);
+ _lou_freeTableFiles($48);
  $49 = $12;
  $50 = ($49|0)!=(0);
  if (!($50)) {
@@ -52611,6 +52621,16 @@ function _lou_findTable($0) {
  }
  return (0)|0;
 }
+function _lou_freeTableFile($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _rpl_free($2);
+ STACKTOP = sp;return;
+}
 function _lou_findTables($0) {
  $0 = $0|0;
  var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $24 = 0, $25 = 0, $26 = 0, $27 = 0;
@@ -52812,6 +52832,16 @@ function _lou_getTableInfo($0,$1) {
   STACKTOP = sp;return ($47|0);
  }
  return (0)|0;
+}
+function _lou_freeTableInfo($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _rpl_free($2);
+ STACKTOP = sp;return;
 }
 function _lou_listTables() {
  var $0 = 0, $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0;
@@ -69948,33 +69978,15 @@ var FUNCTION_TABLE_iii = [b3,b3,jsCall_iii_0,b3,__lou_defaultTableResolver,b3,b3
 var FUNCTION_TABLE_vi = [b4,b4,jsCall_vi_0,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,_meta_free,b4,_rpl_free,b4,b4,b4,_list_free,b4,_feat_free,b4,b4,_cleanup,_cleanup_340,b4,b4,b4
 ,b4,b4,b4];
 
-  return { __lou_getALine: __lou_getALine, __lou_logMessage: __lou_logMessage, __lou_findOpcodeNumber: __lou_findOpcodeNumber, __lou_getDisplayTable: __lou_getDisplayTable, _bitshift64Lshr: _bitshift64Lshr, __lou_outOfMemory: __lou_outOfMemory, __lou_findOpcodeName: __lou_findOpcodeName, _lou_getTableInfo: _lou_getTableInfo, __lou_isValidMode: __lou_isValidMode, __lou_getTablePath: __lou_getTablePath, _lou_indexTables: _lou_indexTables, __lou_getDotsForChar: __lou_getDotsForChar, _lou_version: _lou_version, _sbrk: _sbrk, __lou_charHash: __lou_charHash, _lou_logFile: _lou_logFile, _bitshift64Shl: _bitshift64Shl, ___udivmoddi4: ___udivmoddi4, _lou_translate: _lou_translate, _lou_getEmphClasses: _lou_getEmphClasses, __lou_stringHash: __lou_stringHash, _fflush: _fflush, _lou_logPrint: _lou_logPrint, __lou_showString: __lou_showString, __lou_pattern_compile: __lou_pattern_compile, __lou_showDots: __lou_showDots, _memset: _memset, _llvm_cttz_i32: _llvm_cttz_i32, __lou_allocMem: __lou_allocMem, _memcpy: _memcpy, __lou_compileDisplayRule: __lou_compileDisplayRule, _lou_getDataPath: _lou_getDataPath, _lou_translatePrehyphenated: _lou_translatePrehyphenated, _lou_free: _lou_free, __lou_defaultTableResolver: __lou_defaultTableResolver, __lou_showAttributes: __lou_showAttributes, __lou_resolveTable: __lou_resolveTable, __lou_handlePassVariableAction: __lou_handlePassVariableAction, ___uremdi3: ___uremdi3, _lou_getTypeformForEmphClass: _lou_getTypeformForEmphClass, _lou_setDataPath: _lou_setDataPath, _i64Subtract: _i64Subtract, _lou_findTables: _lou_findTables, __lou_getTranslationTable: __lou_getTranslationTable, _lou_registerLogCallback: _lou_registerLogCallback, _lou_backTranslate: _lou_backTranslate, _i64Add: _i64Add, _pthread_self: _pthread_self, __lou_handlePassVariableTest: __lou_handlePassVariableTest, _lou_findTable: _lou_findTable, __lou_compileTranslationRule: __lou_compileTranslationRule, __lou_backTranslate: __lou_backTranslate, __lou_translate: __lou_translate, __lou_freeTableIndex: __lou_freeTableIndex, __lou_charToFallbackDots: __lou_charToFallbackDots, _lou_translateString: _lou_translateString, _lou_charSize: _lou_charSize, __lou_getTable: __lou_getTable, __lou_unknownDots: __lou_unknownDots, __lou_extParseDots: __lou_extParseDots, ___udivdi3: ___udivdi3, ___errno_location: ___errno_location, _lou_checkTable: _lou_checkTable, _lou_backTranslateString: _lou_backTranslateString, __lou_getCharForDots: __lou_getCharForDots, _lou_compileString: _lou_compileString, __lou_logWidecharBuf: __lou_logWidecharBuf, _lou_charToDots: _lou_charToDots, _memmove: _memmove, _lou_listTables: _lou_listTables, _defaultLogCallback: _defaultLogCallback, _malloc: _malloc, __lou_resetPassVariables: __lou_resetPassVariables, _lou_getTable: _lou_getTable, __lou_pattern_check: __lou_pattern_check, _free: _free, __lou_extParseChars: __lou_extParseChars, _lou_hyphenate: _lou_hyphenate, _lou_registerTableResolver: _lou_registerTableResolver, _lou_readCharFromFile: _lou_readCharFromFile, _lou_dotsToChar: _lou_dotsToChar, _lou_logEnd: _lou_logEnd, _lou_setLogLevel: _lou_setLogLevel, __lou_pattern_reverse: __lou_pattern_reverse, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_vii: dynCall_vii, dynCall_iii: dynCall_iii, dynCall_vi: dynCall_vi };
+  return { __lou_getDisplayTable: __lou_getDisplayTable, _bitshift64Lshr: _bitshift64Lshr, _lou_setLogLevel: _lou_setLogLevel, _lou_logFile: _lou_logFile, _lou_translate: _lou_translate, _lou_logPrint: _lou_logPrint, __lou_showAttributes: __lou_showAttributes, __lou_pattern_compile: __lou_pattern_compile, __lou_showDots: __lou_showDots, _sbrk: _sbrk, _memcpy: _memcpy, __lou_resolveTable: __lou_resolveTable, ___udivmoddi4: ___udivmoddi4, _lou_freeEmphClasses: _lou_freeEmphClasses, __lou_translate: __lou_translate, _free: _free, __lou_getCharForDots: __lou_getCharForDots, _lou_compileString: _lou_compileString, _lou_charToDots: _lou_charToDots, ___uremdi3: ___uremdi3, _lou_listTables: _lou_listTables, __lou_showString: __lou_showString, _lou_hyphenate: _lou_hyphenate, _lou_readCharFromFile: _lou_readCharFromFile, __lou_pattern_reverse: __lou_pattern_reverse, __lou_logMessage: __lou_logMessage, __lou_resetPassVariables: __lou_resetPassVariables, _llvm_cttz_i32: _llvm_cttz_i32, __lou_allocMem: __lou_allocMem, _lou_free: _lou_free, __lou_defaultTableResolver: __lou_defaultTableResolver, _lou_freeTableFile: _lou_freeTableFile, _lou_backTranslate: _lou_backTranslate, __lou_freeTableIndex: __lou_freeTableIndex, __lou_charToFallbackDots: __lou_charToFallbackDots, __lou_extParseDots: __lou_extParseDots, __lou_outOfMemory: __lou_outOfMemory, _lou_findTables: _lou_findTables, _lou_backTranslateString: _lou_backTranslateString, _lou_registerTableResolver: _lou_registerTableResolver, __lou_findOpcodeNumber: __lou_findOpcodeNumber, _lou_indexTables: _lou_indexTables, _lou_getEmphClasses: _lou_getEmphClasses, __lou_stringHash: __lou_stringHash, _memset: _memset, _lou_translatePrehyphenated: _lou_translatePrehyphenated, _lou_setDataPath: _lou_setDataPath, _i64Subtract: _i64Subtract, _lou_registerLogCallback: _lou_registerLogCallback, _lou_findTable: _lou_findTable, __lou_backTranslate: __lou_backTranslate, __lou_pattern_check: __lou_pattern_check, _lou_translateString: _lou_translateString, _lou_charSize: _lou_charSize, __lou_findOpcodeName: __lou_findOpcodeName, __lou_isValidMode: __lou_isValidMode, _malloc: _malloc, __lou_extParseChars: __lou_extParseChars, _lou_getTableInfo: _lou_getTableInfo, __lou_getALine: __lou_getALine, _lou_version: _lou_version, ___udivdi3: ___udivdi3, _lou_freeTableFiles: _lou_freeTableFiles, __lou_getTablePath: __lou_getTablePath, __lou_getDotsForChar: __lou_getDotsForChar, __lou_charHash: __lou_charHash, __lou_getTranslationTable: __lou_getTranslationTable, _fflush: _fflush, _lou_logEnd: _lou_logEnd, __lou_compileDisplayRule: __lou_compileDisplayRule, _lou_getDataPath: _lou_getDataPath, _bitshift64Shl: _bitshift64Shl, __lou_handlePassVariableAction: __lou_handlePassVariableAction, _lou_getTypeformForEmphClass: _lou_getTypeformForEmphClass, _i64Add: _i64Add, _pthread_self: _pthread_self, __lou_handlePassVariableTest: __lou_handlePassVariableTest, __lou_compileTranslationRule: __lou_compileTranslationRule, __lou_getTable: __lou_getTable, __lou_unknownDots: __lou_unknownDots, ___errno_location: ___errno_location, _lou_checkTable: _lou_checkTable, __lou_logWidecharBuf: __lou_logWidecharBuf, _lou_freeTableInfo: _lou_freeTableInfo, _memmove: _memmove, _defaultLogCallback: _defaultLogCallback, _lou_getTable: _lou_getTable, _lou_dotsToChar: _lou_dotsToChar, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_vii: dynCall_vii, dynCall_iii: dynCall_iii, dynCall_vi: dynCall_vi };
 })
 // EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
 
-var real___lou_getALine = asm["__lou_getALine"]; asm["__lou_getALine"] = function() {
+var real__lou_setLogLevel = asm["_lou_setLogLevel"]; asm["_lou_setLogLevel"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getALine.apply(null, arguments);
-};
-
-var real___lou_logMessage = asm["__lou_logMessage"]; asm["__lou_logMessage"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_logMessage.apply(null, arguments);
-};
-
-var real___lou_findOpcodeNumber = asm["__lou_findOpcodeNumber"]; asm["__lou_findOpcodeNumber"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_findOpcodeNumber.apply(null, arguments);
-};
-
-var real___lou_getDisplayTable = asm["__lou_getDisplayTable"]; asm["__lou_getDisplayTable"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getDisplayTable.apply(null, arguments);
+return real__lou_setLogLevel.apply(null, arguments);
 };
 
 var real__bitshift64Lshr = asm["_bitshift64Lshr"]; asm["_bitshift64Lshr"] = function() {
@@ -69983,64 +69995,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__bitshift64Lshr.apply(null, arguments);
 };
 
-var real___lou_getCharForDots = asm["__lou_getCharForDots"]; asm["__lou_getCharForDots"] = function() {
+var real___lou_getDisplayTable = asm["__lou_getDisplayTable"]; asm["__lou_getDisplayTable"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getCharForDots.apply(null, arguments);
-};
-
-var real___lou_getTable = asm["__lou_getTable"]; asm["__lou_getTable"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getTable.apply(null, arguments);
-};
-
-var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__llvm_cttz_i32.apply(null, arguments);
-};
-
-var real___lou_isValidMode = asm["__lou_isValidMode"]; asm["__lou_isValidMode"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_isValidMode.apply(null, arguments);
-};
-
-var real__lou_setLogLevel = asm["_lou_setLogLevel"]; asm["_lou_setLogLevel"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_setLogLevel.apply(null, arguments);
-};
-
-var real___lou_getTablePath = asm["__lou_getTablePath"]; asm["__lou_getTablePath"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getTablePath.apply(null, arguments);
-};
-
-var real__lou_indexTables = asm["_lou_indexTables"]; asm["_lou_indexTables"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_indexTables.apply(null, arguments);
-};
-
-var real___lou_getDotsForChar = asm["__lou_getDotsForChar"]; asm["__lou_getDotsForChar"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getDotsForChar.apply(null, arguments);
-};
-
-var real__lou_version = asm["_lou_version"]; asm["_lou_version"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_version.apply(null, arguments);
-};
-
-var real___lou_charHash = asm["__lou_charHash"]; asm["__lou_charHash"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_charHash.apply(null, arguments);
+return real___lou_getDisplayTable.apply(null, arguments);
 };
 
 var real__lou_logFile = asm["_lou_logFile"]; asm["_lou_logFile"] = function() {
@@ -70049,40 +70007,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__lou_logFile.apply(null, arguments);
 };
 
-var real__lou_hyphenate = asm["_lou_hyphenate"]; asm["_lou_hyphenate"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_hyphenate.apply(null, arguments);
-};
-
-var real__bitshift64Shl = asm["_bitshift64Shl"]; asm["_bitshift64Shl"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__bitshift64Shl.apply(null, arguments);
-};
-
 var real__lou_translate = asm["_lou_translate"]; asm["_lou_translate"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__lou_translate.apply(null, arguments);
-};
-
-var real__lou_getEmphClasses = asm["_lou_getEmphClasses"]; asm["_lou_getEmphClasses"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_getEmphClasses.apply(null, arguments);
-};
-
-var real___lou_stringHash = asm["__lou_stringHash"]; asm["__lou_stringHash"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_stringHash.apply(null, arguments);
-};
-
-var real__fflush = asm["_fflush"]; asm["_fflush"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__fflush.apply(null, arguments);
 };
 
 var real__lou_logPrint = asm["_lou_logPrint"]; asm["_lou_logPrint"] = function() {
@@ -70109,40 +70037,118 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real___lou_showDots.apply(null, arguments);
 };
 
-var real___lou_resetPassVariables = asm["__lou_resetPassVariables"]; asm["__lou_resetPassVariables"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_resetPassVariables.apply(null, arguments);
-};
-
 var real__sbrk = asm["_sbrk"]; asm["_sbrk"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__sbrk.apply(null, arguments);
 };
 
+var real___lou_resolveTable = asm["__lou_resolveTable"]; asm["__lou_resolveTable"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_resolveTable.apply(null, arguments);
+};
+
+var real___lou_getTranslationTable = asm["__lou_getTranslationTable"]; asm["__lou_getTranslationTable"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getTranslationTable.apply(null, arguments);
+};
+
+var real__lou_freeEmphClasses = asm["_lou_freeEmphClasses"]; asm["_lou_freeEmphClasses"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_freeEmphClasses.apply(null, arguments);
+};
+
+var real___lou_translate = asm["__lou_translate"]; asm["__lou_translate"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_translate.apply(null, arguments);
+};
+
+var real___lou_getCharForDots = asm["__lou_getCharForDots"]; asm["__lou_getCharForDots"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getCharForDots.apply(null, arguments);
+};
+
+var real__free = asm["_free"]; asm["_free"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__free.apply(null, arguments);
+};
+
+var real__lou_compileString = asm["_lou_compileString"]; asm["_lou_compileString"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_compileString.apply(null, arguments);
+};
+
+var real__lou_charToDots = asm["_lou_charToDots"]; asm["_lou_charToDots"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_charToDots.apply(null, arguments);
+};
+
+var real___lou_handlePassVariableAction = asm["__lou_handlePassVariableAction"]; asm["__lou_handlePassVariableAction"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_handlePassVariableAction.apply(null, arguments);
+};
+
+var real__lou_listTables = asm["_lou_listTables"]; asm["_lou_listTables"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_listTables.apply(null, arguments);
+};
+
+var real___lou_showString = asm["__lou_showString"]; asm["__lou_showString"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_showString.apply(null, arguments);
+};
+
+var real__lou_hyphenate = asm["_lou_hyphenate"]; asm["_lou_hyphenate"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_hyphenate.apply(null, arguments);
+};
+
+var real__lou_readCharFromFile = asm["_lou_readCharFromFile"]; asm["_lou_readCharFromFile"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_readCharFromFile.apply(null, arguments);
+};
+
+var real___lou_pattern_reverse = asm["__lou_pattern_reverse"]; asm["__lou_pattern_reverse"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_pattern_reverse.apply(null, arguments);
+};
+
+var real___lou_logMessage = asm["__lou_logMessage"]; asm["__lou_logMessage"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_logMessage.apply(null, arguments);
+};
+
+var real___lou_resetPassVariables = asm["__lou_resetPassVariables"]; asm["__lou_resetPassVariables"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_resetPassVariables.apply(null, arguments);
+};
+
+var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__llvm_cttz_i32.apply(null, arguments);
+};
+
 var real___lou_allocMem = asm["__lou_allocMem"]; asm["__lou_allocMem"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real___lou_allocMem.apply(null, arguments);
-};
-
-var real___lou_compileDisplayRule = asm["__lou_compileDisplayRule"]; asm["__lou_compileDisplayRule"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_compileDisplayRule.apply(null, arguments);
-};
-
-var real__lou_getDataPath = asm["_lou_getDataPath"]; asm["_lou_getDataPath"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_getDataPath.apply(null, arguments);
-};
-
-var real__lou_translatePrehyphenated = asm["_lou_translatePrehyphenated"]; asm["_lou_translatePrehyphenated"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_translatePrehyphenated.apply(null, arguments);
 };
 
 var real__lou_free = asm["_lou_free"]; asm["_lou_free"] = function() {
@@ -70157,28 +70163,94 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real___lou_defaultTableResolver.apply(null, arguments);
 };
 
-var real___lou_extParseChars = asm["__lou_extParseChars"]; asm["__lou_extParseChars"] = function() {
+var real__lou_freeTableFile = asm["_lou_freeTableFile"]; asm["_lou_freeTableFile"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_extParseChars.apply(null, arguments);
+return real__lou_freeTableFile.apply(null, arguments);
 };
 
-var real___lou_resolveTable = asm["__lou_resolveTable"]; asm["__lou_resolveTable"] = function() {
+var real__lou_backTranslate = asm["_lou_backTranslate"]; asm["_lou_backTranslate"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_resolveTable.apply(null, arguments);
+return real__lou_backTranslate.apply(null, arguments);
 };
 
-var real___lou_handlePassVariableAction = asm["__lou_handlePassVariableAction"]; asm["__lou_handlePassVariableAction"] = function() {
+var real___lou_freeTableIndex = asm["__lou_freeTableIndex"]; asm["__lou_freeTableIndex"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_handlePassVariableAction.apply(null, arguments);
+return real___lou_freeTableIndex.apply(null, arguments);
 };
 
-var real__lou_getTypeformForEmphClass = asm["_lou_getTypeformForEmphClass"]; asm["_lou_getTypeformForEmphClass"] = function() {
+var real___lou_charToFallbackDots = asm["__lou_charToFallbackDots"]; asm["__lou_charToFallbackDots"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_getTypeformForEmphClass.apply(null, arguments);
+return real___lou_charToFallbackDots.apply(null, arguments);
+};
+
+var real___lou_extParseDots = asm["__lou_extParseDots"]; asm["__lou_extParseDots"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_extParseDots.apply(null, arguments);
+};
+
+var real___lou_outOfMemory = asm["__lou_outOfMemory"]; asm["__lou_outOfMemory"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_outOfMemory.apply(null, arguments);
+};
+
+var real__lou_findTables = asm["_lou_findTables"]; asm["_lou_findTables"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_findTables.apply(null, arguments);
+};
+
+var real__lou_backTranslateString = asm["_lou_backTranslateString"]; asm["_lou_backTranslateString"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_backTranslateString.apply(null, arguments);
+};
+
+var real__lou_registerTableResolver = asm["_lou_registerTableResolver"]; asm["_lou_registerTableResolver"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_registerTableResolver.apply(null, arguments);
+};
+
+var real___lou_findOpcodeNumber = asm["__lou_findOpcodeNumber"]; asm["__lou_findOpcodeNumber"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_findOpcodeNumber.apply(null, arguments);
+};
+
+var real__lou_indexTables = asm["_lou_indexTables"]; asm["_lou_indexTables"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_indexTables.apply(null, arguments);
+};
+
+var real____udivmoddi4 = asm["___udivmoddi4"]; asm["___udivmoddi4"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real____udivmoddi4.apply(null, arguments);
+};
+
+var real__lou_getEmphClasses = asm["_lou_getEmphClasses"]; asm["_lou_getEmphClasses"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_getEmphClasses.apply(null, arguments);
+};
+
+var real___lou_stringHash = asm["__lou_stringHash"]; asm["__lou_stringHash"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_stringHash.apply(null, arguments);
+};
+
+var real__lou_translatePrehyphenated = asm["_lou_translatePrehyphenated"]; asm["_lou_translatePrehyphenated"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_translatePrehyphenated.apply(null, arguments);
 };
 
 var real__lou_setDataPath = asm["_lou_setDataPath"]; asm["_lou_setDataPath"] = function() {
@@ -70193,46 +70265,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__i64Subtract.apply(null, arguments);
 };
 
-var real____udivmoddi4 = asm["___udivmoddi4"]; asm["___udivmoddi4"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real____udivmoddi4.apply(null, arguments);
-};
-
 var real__lou_registerLogCallback = asm["_lou_registerLogCallback"]; asm["_lou_registerLogCallback"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__lou_registerLogCallback.apply(null, arguments);
-};
-
-var real__lou_backTranslate = asm["_lou_backTranslate"]; asm["_lou_backTranslate"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_backTranslate.apply(null, arguments);
-};
-
-var real__i64Add = asm["_i64Add"]; asm["_i64Add"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__i64Add.apply(null, arguments);
-};
-
-var real__lou_registerTableResolver = asm["_lou_registerTableResolver"]; asm["_lou_registerTableResolver"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_registerTableResolver.apply(null, arguments);
-};
-
-var real__pthread_self = asm["_pthread_self"]; asm["_pthread_self"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__pthread_self.apply(null, arguments);
-};
-
-var real___lou_handlePassVariableTest = asm["__lou_handlePassVariableTest"]; asm["__lou_handlePassVariableTest"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_handlePassVariableTest.apply(null, arguments);
 };
 
 var real__lou_findTable = asm["_lou_findTable"]; asm["_lou_findTable"] = function() {
@@ -70241,34 +70277,16 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__lou_findTable.apply(null, arguments);
 };
 
-var real___lou_compileTranslationRule = asm["__lou_compileTranslationRule"]; asm["__lou_compileTranslationRule"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_compileTranslationRule.apply(null, arguments);
-};
-
 var real___lou_backTranslate = asm["__lou_backTranslate"]; asm["__lou_backTranslate"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real___lou_backTranslate.apply(null, arguments);
 };
 
-var real___lou_translate = asm["__lou_translate"]; asm["__lou_translate"] = function() {
+var real___lou_pattern_check = asm["__lou_pattern_check"]; asm["__lou_pattern_check"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_translate.apply(null, arguments);
-};
-
-var real___lou_freeTableIndex = asm["__lou_freeTableIndex"]; asm["__lou_freeTableIndex"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_freeTableIndex.apply(null, arguments);
-};
-
-var real___lou_charToFallbackDots = asm["__lou_charToFallbackDots"]; asm["__lou_charToFallbackDots"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_charToFallbackDots.apply(null, arguments);
+return real___lou_pattern_check.apply(null, arguments);
 };
 
 var real__lou_translateString = asm["_lou_translateString"]; asm["_lou_translateString"] = function() {
@@ -70289,28 +70307,148 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real___lou_findOpcodeName.apply(null, arguments);
 };
 
-var real___lou_unknownDots = asm["__lou_unknownDots"]; asm["__lou_unknownDots"] = function() {
+var real__malloc = asm["_malloc"]; asm["_malloc"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_unknownDots.apply(null, arguments);
+return real__malloc.apply(null, arguments);
 };
 
-var real___lou_extParseDots = asm["__lou_extParseDots"]; asm["__lou_extParseDots"] = function() {
+var real__lou_freeTableFiles = asm["_lou_freeTableFiles"]; asm["_lou_freeTableFiles"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_extParseDots.apply(null, arguments);
+return real__lou_freeTableFiles.apply(null, arguments);
 };
 
-var real___lou_pattern_check = asm["__lou_pattern_check"]; asm["__lou_pattern_check"] = function() {
+var real___lou_extParseChars = asm["__lou_extParseChars"]; asm["__lou_extParseChars"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_pattern_check.apply(null, arguments);
+return real___lou_extParseChars.apply(null, arguments);
+};
+
+var real__lou_getTableInfo = asm["_lou_getTableInfo"]; asm["_lou_getTableInfo"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_getTableInfo.apply(null, arguments);
+};
+
+var real___lou_getALine = asm["__lou_getALine"]; asm["__lou_getALine"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getALine.apply(null, arguments);
+};
+
+var real__lou_version = asm["_lou_version"]; asm["_lou_version"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_version.apply(null, arguments);
 };
 
 var real____udivdi3 = asm["___udivdi3"]; asm["___udivdi3"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real____udivdi3.apply(null, arguments);
+};
+
+var real___lou_isValidMode = asm["__lou_isValidMode"]; asm["__lou_isValidMode"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_isValidMode.apply(null, arguments);
+};
+
+var real___lou_getTablePath = asm["__lou_getTablePath"]; asm["__lou_getTablePath"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getTablePath.apply(null, arguments);
+};
+
+var real___lou_getDotsForChar = asm["__lou_getDotsForChar"]; asm["__lou_getDotsForChar"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getDotsForChar.apply(null, arguments);
+};
+
+var real___lou_charHash = asm["__lou_charHash"]; asm["__lou_charHash"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_charHash.apply(null, arguments);
+};
+
+var real__bitshift64Shl = asm["_bitshift64Shl"]; asm["_bitshift64Shl"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__bitshift64Shl.apply(null, arguments);
+};
+
+var real__fflush = asm["_fflush"]; asm["_fflush"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__fflush.apply(null, arguments);
+};
+
+var real__lou_logEnd = asm["_lou_logEnd"]; asm["_lou_logEnd"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_logEnd.apply(null, arguments);
+};
+
+var real___lou_compileDisplayRule = asm["__lou_compileDisplayRule"]; asm["__lou_compileDisplayRule"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_compileDisplayRule.apply(null, arguments);
+};
+
+var real__lou_getDataPath = asm["_lou_getDataPath"]; asm["_lou_getDataPath"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_getDataPath.apply(null, arguments);
+};
+
+var real____uremdi3 = asm["___uremdi3"]; asm["___uremdi3"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real____uremdi3.apply(null, arguments);
+};
+
+var real__lou_getTypeformForEmphClass = asm["_lou_getTypeformForEmphClass"]; asm["_lou_getTypeformForEmphClass"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__lou_getTypeformForEmphClass.apply(null, arguments);
+};
+
+var real__i64Add = asm["_i64Add"]; asm["_i64Add"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__i64Add.apply(null, arguments);
+};
+
+var real__pthread_self = asm["_pthread_self"]; asm["_pthread_self"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__pthread_self.apply(null, arguments);
+};
+
+var real___lou_handlePassVariableTest = asm["__lou_handlePassVariableTest"]; asm["__lou_handlePassVariableTest"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_handlePassVariableTest.apply(null, arguments);
+};
+
+var real___lou_compileTranslationRule = asm["__lou_compileTranslationRule"]; asm["__lou_compileTranslationRule"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_compileTranslationRule.apply(null, arguments);
+};
+
+var real___lou_getTable = asm["__lou_getTable"]; asm["__lou_getTable"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_getTable.apply(null, arguments);
+};
+
+var real___lou_unknownDots = asm["__lou_unknownDots"]; asm["__lou_unknownDots"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real___lou_unknownDots.apply(null, arguments);
 };
 
 var real____errno_location = asm["___errno_location"]; asm["___errno_location"] = function() {
@@ -70325,82 +70463,16 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__lou_checkTable.apply(null, arguments);
 };
 
-var real___lou_outOfMemory = asm["__lou_outOfMemory"]; asm["__lou_outOfMemory"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_outOfMemory.apply(null, arguments);
-};
-
-var real__lou_compileString = asm["_lou_compileString"]; asm["_lou_compileString"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_compileString.apply(null, arguments);
-};
-
 var real___lou_logWidecharBuf = asm["__lou_logWidecharBuf"]; asm["__lou_logWidecharBuf"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real___lou_logWidecharBuf.apply(null, arguments);
 };
 
-var real__lou_charToDots = asm["_lou_charToDots"]; asm["_lou_charToDots"] = function() {
+var real__lou_freeTableInfo = asm["_lou_freeTableInfo"]; asm["_lou_freeTableInfo"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_charToDots.apply(null, arguments);
-};
-
-var real____uremdi3 = asm["___uremdi3"]; asm["___uremdi3"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real____uremdi3.apply(null, arguments);
-};
-
-var real__lou_listTables = asm["_lou_listTables"]; asm["_lou_listTables"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_listTables.apply(null, arguments);
-};
-
-var real__defaultLogCallback = asm["_defaultLogCallback"]; asm["_defaultLogCallback"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__defaultLogCallback.apply(null, arguments);
-};
-
-var real__malloc = asm["_malloc"]; asm["_malloc"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__malloc.apply(null, arguments);
-};
-
-var real___lou_showString = asm["__lou_showString"]; asm["__lou_showString"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_showString.apply(null, arguments);
-};
-
-var real__lou_getTable = asm["_lou_getTable"]; asm["_lou_getTable"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_getTable.apply(null, arguments);
-};
-
-var real__free = asm["_free"]; asm["_free"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__free.apply(null, arguments);
-};
-
-var real__lou_findTables = asm["_lou_findTables"]; asm["_lou_findTables"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_findTables.apply(null, arguments);
-};
-
-var real__lou_backTranslateString = asm["_lou_backTranslateString"]; asm["_lou_backTranslateString"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_backTranslateString.apply(null, arguments);
+return real__lou_freeTableInfo.apply(null, arguments);
 };
 
 var real__memmove = asm["_memmove"]; asm["_memmove"] = function() {
@@ -70409,16 +70481,16 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__memmove.apply(null, arguments);
 };
 
-var real__lou_getTableInfo = asm["_lou_getTableInfo"]; asm["_lou_getTableInfo"] = function() {
+var real__defaultLogCallback = asm["_defaultLogCallback"]; asm["_defaultLogCallback"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_getTableInfo.apply(null, arguments);
+return real__defaultLogCallback.apply(null, arguments);
 };
 
-var real__lou_readCharFromFile = asm["_lou_readCharFromFile"]; asm["_lou_readCharFromFile"] = function() {
+var real__lou_getTable = asm["_lou_getTable"]; asm["_lou_getTable"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_readCharFromFile.apply(null, arguments);
+return real__lou_getTable.apply(null, arguments);
 };
 
 var real__lou_dotsToChar = asm["_lou_dotsToChar"]; asm["_lou_dotsToChar"] = function() {
@@ -70426,109 +70498,95 @@ assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. w
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__lou_dotsToChar.apply(null, arguments);
 };
-
-var real__lou_logEnd = asm["_lou_logEnd"]; asm["_lou_logEnd"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__lou_logEnd.apply(null, arguments);
-};
-
-var real___lou_getTranslationTable = asm["__lou_getTranslationTable"]; asm["__lou_getTranslationTable"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_getTranslationTable.apply(null, arguments);
-};
-
-var real___lou_pattern_reverse = asm["__lou_pattern_reverse"]; asm["__lou_pattern_reverse"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real___lou_pattern_reverse.apply(null, arguments);
-};
-var __lou_getALine = Module["__lou_getALine"] = asm["__lou_getALine"];
-var __lou_logMessage = Module["__lou_logMessage"] = asm["__lou_logMessage"];
-var __lou_findOpcodeNumber = Module["__lou_findOpcodeNumber"] = asm["__lou_findOpcodeNumber"];
-var __lou_getDisplayTable = Module["__lou_getDisplayTable"] = asm["__lou_getDisplayTable"];
-var _bitshift64Lshr = Module["_bitshift64Lshr"] = asm["_bitshift64Lshr"];
-var __lou_getCharForDots = Module["__lou_getCharForDots"] = asm["__lou_getCharForDots"];
-var __lou_getTable = Module["__lou_getTable"] = asm["__lou_getTable"];
-var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
-var __lou_isValidMode = Module["__lou_isValidMode"] = asm["__lou_isValidMode"];
 var _lou_setLogLevel = Module["_lou_setLogLevel"] = asm["_lou_setLogLevel"];
-var __lou_getTablePath = Module["__lou_getTablePath"] = asm["__lou_getTablePath"];
-var _lou_indexTables = Module["_lou_indexTables"] = asm["_lou_indexTables"];
-var __lou_getDotsForChar = Module["__lou_getDotsForChar"] = asm["__lou_getDotsForChar"];
-var _lou_version = Module["_lou_version"] = asm["_lou_version"];
-var __lou_charHash = Module["__lou_charHash"] = asm["__lou_charHash"];
+var _bitshift64Lshr = Module["_bitshift64Lshr"] = asm["_bitshift64Lshr"];
+var __lou_getDisplayTable = Module["__lou_getDisplayTable"] = asm["__lou_getDisplayTable"];
 var _lou_logFile = Module["_lou_logFile"] = asm["_lou_logFile"];
-var _lou_hyphenate = Module["_lou_hyphenate"] = asm["_lou_hyphenate"];
-var _bitshift64Shl = Module["_bitshift64Shl"] = asm["_bitshift64Shl"];
 var _lou_translate = Module["_lou_translate"] = asm["_lou_translate"];
-var _lou_getEmphClasses = Module["_lou_getEmphClasses"] = asm["_lou_getEmphClasses"];
-var __lou_stringHash = Module["__lou_stringHash"] = asm["__lou_stringHash"];
-var _fflush = Module["_fflush"] = asm["_fflush"];
 var _lou_logPrint = Module["_lou_logPrint"] = asm["_lou_logPrint"];
 var __lou_showAttributes = Module["__lou_showAttributes"] = asm["__lou_showAttributes"];
 var __lou_pattern_compile = Module["__lou_pattern_compile"] = asm["__lou_pattern_compile"];
 var __lou_showDots = Module["__lou_showDots"] = asm["__lou_showDots"];
-var _memset = Module["_memset"] = asm["_memset"];
-var __lou_resetPassVariables = Module["__lou_resetPassVariables"] = asm["__lou_resetPassVariables"];
 var _sbrk = Module["_sbrk"] = asm["_sbrk"];
-var __lou_allocMem = Module["__lou_allocMem"] = asm["__lou_allocMem"];
 var _memcpy = Module["_memcpy"] = asm["_memcpy"];
-var __lou_compileDisplayRule = Module["__lou_compileDisplayRule"] = asm["__lou_compileDisplayRule"];
-var _lou_getDataPath = Module["_lou_getDataPath"] = asm["_lou_getDataPath"];
-var _lou_translatePrehyphenated = Module["_lou_translatePrehyphenated"] = asm["_lou_translatePrehyphenated"];
+var __lou_resolveTable = Module["__lou_resolveTable"] = asm["__lou_resolveTable"];
+var __lou_getTranslationTable = Module["__lou_getTranslationTable"] = asm["__lou_getTranslationTable"];
+var _lou_freeEmphClasses = Module["_lou_freeEmphClasses"] = asm["_lou_freeEmphClasses"];
+var __lou_translate = Module["__lou_translate"] = asm["__lou_translate"];
+var __lou_getCharForDots = Module["__lou_getCharForDots"] = asm["__lou_getCharForDots"];
+var _free = Module["_free"] = asm["_free"];
+var runPostSets = Module["runPostSets"] = asm["runPostSets"];
+var _lou_compileString = Module["_lou_compileString"] = asm["_lou_compileString"];
+var _lou_charToDots = Module["_lou_charToDots"] = asm["_lou_charToDots"];
+var __lou_handlePassVariableAction = Module["__lou_handlePassVariableAction"] = asm["__lou_handlePassVariableAction"];
+var _lou_listTables = Module["_lou_listTables"] = asm["_lou_listTables"];
+var __lou_showString = Module["__lou_showString"] = asm["__lou_showString"];
+var _lou_hyphenate = Module["_lou_hyphenate"] = asm["_lou_hyphenate"];
+var _lou_readCharFromFile = Module["_lou_readCharFromFile"] = asm["_lou_readCharFromFile"];
+var __lou_pattern_reverse = Module["__lou_pattern_reverse"] = asm["__lou_pattern_reverse"];
+var __lou_logMessage = Module["__lou_logMessage"] = asm["__lou_logMessage"];
+var __lou_resetPassVariables = Module["__lou_resetPassVariables"] = asm["__lou_resetPassVariables"];
+var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
+var __lou_allocMem = Module["__lou_allocMem"] = asm["__lou_allocMem"];
 var _lou_free = Module["_lou_free"] = asm["_lou_free"];
 var __lou_defaultTableResolver = Module["__lou_defaultTableResolver"] = asm["__lou_defaultTableResolver"];
-var __lou_extParseChars = Module["__lou_extParseChars"] = asm["__lou_extParseChars"];
-var __lou_resolveTable = Module["__lou_resolveTable"] = asm["__lou_resolveTable"];
-var __lou_handlePassVariableAction = Module["__lou_handlePassVariableAction"] = asm["__lou_handlePassVariableAction"];
-var _lou_getTypeformForEmphClass = Module["_lou_getTypeformForEmphClass"] = asm["_lou_getTypeformForEmphClass"];
-var _lou_setDataPath = Module["_lou_setDataPath"] = asm["_lou_setDataPath"];
-var _i64Subtract = Module["_i64Subtract"] = asm["_i64Subtract"];
-var ___udivmoddi4 = Module["___udivmoddi4"] = asm["___udivmoddi4"];
-var _lou_registerLogCallback = Module["_lou_registerLogCallback"] = asm["_lou_registerLogCallback"];
+var _lou_freeTableFile = Module["_lou_freeTableFile"] = asm["_lou_freeTableFile"];
 var _lou_backTranslate = Module["_lou_backTranslate"] = asm["_lou_backTranslate"];
-var _i64Add = Module["_i64Add"] = asm["_i64Add"];
-var _lou_registerTableResolver = Module["_lou_registerTableResolver"] = asm["_lou_registerTableResolver"];
-var _pthread_self = Module["_pthread_self"] = asm["_pthread_self"];
-var __lou_handlePassVariableTest = Module["__lou_handlePassVariableTest"] = asm["__lou_handlePassVariableTest"];
-var _lou_findTable = Module["_lou_findTable"] = asm["_lou_findTable"];
-var __lou_compileTranslationRule = Module["__lou_compileTranslationRule"] = asm["__lou_compileTranslationRule"];
-var __lou_backTranslate = Module["__lou_backTranslate"] = asm["__lou_backTranslate"];
-var __lou_translate = Module["__lou_translate"] = asm["__lou_translate"];
 var __lou_freeTableIndex = Module["__lou_freeTableIndex"] = asm["__lou_freeTableIndex"];
 var __lou_charToFallbackDots = Module["__lou_charToFallbackDots"] = asm["__lou_charToFallbackDots"];
+var __lou_extParseDots = Module["__lou_extParseDots"] = asm["__lou_extParseDots"];
+var __lou_outOfMemory = Module["__lou_outOfMemory"] = asm["__lou_outOfMemory"];
+var _lou_findTables = Module["_lou_findTables"] = asm["_lou_findTables"];
+var _lou_backTranslateString = Module["_lou_backTranslateString"] = asm["_lou_backTranslateString"];
+var _lou_registerTableResolver = Module["_lou_registerTableResolver"] = asm["_lou_registerTableResolver"];
+var __lou_findOpcodeNumber = Module["__lou_findOpcodeNumber"] = asm["__lou_findOpcodeNumber"];
+var _lou_indexTables = Module["_lou_indexTables"] = asm["_lou_indexTables"];
+var ___udivmoddi4 = Module["___udivmoddi4"] = asm["___udivmoddi4"];
+var _lou_getEmphClasses = Module["_lou_getEmphClasses"] = asm["_lou_getEmphClasses"];
+var __lou_stringHash = Module["__lou_stringHash"] = asm["__lou_stringHash"];
+var _memset = Module["_memset"] = asm["_memset"];
+var _lou_translatePrehyphenated = Module["_lou_translatePrehyphenated"] = asm["_lou_translatePrehyphenated"];
+var _lou_setDataPath = Module["_lou_setDataPath"] = asm["_lou_setDataPath"];
+var _i64Subtract = Module["_i64Subtract"] = asm["_i64Subtract"];
+var _lou_registerLogCallback = Module["_lou_registerLogCallback"] = asm["_lou_registerLogCallback"];
+var _lou_findTable = Module["_lou_findTable"] = asm["_lou_findTable"];
+var __lou_backTranslate = Module["__lou_backTranslate"] = asm["__lou_backTranslate"];
+var __lou_pattern_check = Module["__lou_pattern_check"] = asm["__lou_pattern_check"];
 var _lou_translateString = Module["_lou_translateString"] = asm["_lou_translateString"];
 var _lou_charSize = Module["_lou_charSize"] = asm["_lou_charSize"];
 var __lou_findOpcodeName = Module["__lou_findOpcodeName"] = asm["__lou_findOpcodeName"];
-var __lou_unknownDots = Module["__lou_unknownDots"] = asm["__lou_unknownDots"];
-var __lou_extParseDots = Module["__lou_extParseDots"] = asm["__lou_extParseDots"];
-var __lou_pattern_check = Module["__lou_pattern_check"] = asm["__lou_pattern_check"];
+var _malloc = Module["_malloc"] = asm["_malloc"];
+var _lou_freeTableFiles = Module["_lou_freeTableFiles"] = asm["_lou_freeTableFiles"];
+var __lou_extParseChars = Module["__lou_extParseChars"] = asm["__lou_extParseChars"];
+var _lou_getTableInfo = Module["_lou_getTableInfo"] = asm["_lou_getTableInfo"];
+var __lou_getALine = Module["__lou_getALine"] = asm["__lou_getALine"];
+var _lou_version = Module["_lou_version"] = asm["_lou_version"];
 var ___udivdi3 = Module["___udivdi3"] = asm["___udivdi3"];
+var __lou_isValidMode = Module["__lou_isValidMode"] = asm["__lou_isValidMode"];
+var __lou_getTablePath = Module["__lou_getTablePath"] = asm["__lou_getTablePath"];
+var __lou_getDotsForChar = Module["__lou_getDotsForChar"] = asm["__lou_getDotsForChar"];
+var __lou_charHash = Module["__lou_charHash"] = asm["__lou_charHash"];
+var _bitshift64Shl = Module["_bitshift64Shl"] = asm["_bitshift64Shl"];
+var _fflush = Module["_fflush"] = asm["_fflush"];
+var _lou_logEnd = Module["_lou_logEnd"] = asm["_lou_logEnd"];
+var __lou_compileDisplayRule = Module["__lou_compileDisplayRule"] = asm["__lou_compileDisplayRule"];
+var _lou_getDataPath = Module["_lou_getDataPath"] = asm["_lou_getDataPath"];
+var ___uremdi3 = Module["___uremdi3"] = asm["___uremdi3"];
+var _lou_getTypeformForEmphClass = Module["_lou_getTypeformForEmphClass"] = asm["_lou_getTypeformForEmphClass"];
+var _i64Add = Module["_i64Add"] = asm["_i64Add"];
+var _pthread_self = Module["_pthread_self"] = asm["_pthread_self"];
+var __lou_handlePassVariableTest = Module["__lou_handlePassVariableTest"] = asm["__lou_handlePassVariableTest"];
+var __lou_compileTranslationRule = Module["__lou_compileTranslationRule"] = asm["__lou_compileTranslationRule"];
+var __lou_getTable = Module["__lou_getTable"] = asm["__lou_getTable"];
+var __lou_unknownDots = Module["__lou_unknownDots"] = asm["__lou_unknownDots"];
 var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
 var _lou_checkTable = Module["_lou_checkTable"] = asm["_lou_checkTable"];
-var __lou_outOfMemory = Module["__lou_outOfMemory"] = asm["__lou_outOfMemory"];
-var runPostSets = Module["runPostSets"] = asm["runPostSets"];
-var _lou_compileString = Module["_lou_compileString"] = asm["_lou_compileString"];
 var __lou_logWidecharBuf = Module["__lou_logWidecharBuf"] = asm["__lou_logWidecharBuf"];
-var _lou_charToDots = Module["_lou_charToDots"] = asm["_lou_charToDots"];
-var ___uremdi3 = Module["___uremdi3"] = asm["___uremdi3"];
-var _lou_listTables = Module["_lou_listTables"] = asm["_lou_listTables"];
-var _defaultLogCallback = Module["_defaultLogCallback"] = asm["_defaultLogCallback"];
-var _malloc = Module["_malloc"] = asm["_malloc"];
-var __lou_showString = Module["__lou_showString"] = asm["__lou_showString"];
-var _lou_getTable = Module["_lou_getTable"] = asm["_lou_getTable"];
-var _free = Module["_free"] = asm["_free"];
-var _lou_findTables = Module["_lou_findTables"] = asm["_lou_findTables"];
-var _lou_backTranslateString = Module["_lou_backTranslateString"] = asm["_lou_backTranslateString"];
+var _lou_freeTableInfo = Module["_lou_freeTableInfo"] = asm["_lou_freeTableInfo"];
 var _memmove = Module["_memmove"] = asm["_memmove"];
-var _lou_getTableInfo = Module["_lou_getTableInfo"] = asm["_lou_getTableInfo"];
-var _lou_readCharFromFile = Module["_lou_readCharFromFile"] = asm["_lou_readCharFromFile"];
+var _defaultLogCallback = Module["_defaultLogCallback"] = asm["_defaultLogCallback"];
+var _lou_getTable = Module["_lou_getTable"] = asm["_lou_getTable"];
 var _lou_dotsToChar = Module["_lou_dotsToChar"] = asm["_lou_dotsToChar"];
-var _lou_logEnd = Module["_lou_logEnd"] = asm["_lou_logEnd"];
-var __lou_getTranslationTable = Module["__lou_getTranslationTable"] = asm["__lou_getTranslationTable"];
-var __lou_pattern_reverse = Module["__lou_pattern_reverse"] = asm["__lou_pattern_reverse"];
 var dynCall_ii = Module["dynCall_ii"] = asm["dynCall_ii"];
 var dynCall_iiii = Module["dynCall_iiii"] = asm["dynCall_iiii"];
 var dynCall_vii = Module["dynCall_vii"] = asm["dynCall_vii"];
