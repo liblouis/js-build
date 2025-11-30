@@ -145,26 +145,26 @@ always \s­\s 36-36
 midnum ­ 36
 endnum % 46
 # special character sequences
-compbrl :// URLs
-compbrl www.
+literal :// URLs
+literal www.
 
-compbrl .com
-compbrl .edu
-compbrl .gov
-compbrl .mil
-compbrl .net
-compbrl .org
+literal .com
+literal .edu
+literal .gov
+literal .mil
+literal .net
+literal .org
 
-compbrl .doc
-compbrl .htm
-compbrl .html
-compbrl .tex
-compbrl .txt
+literal .doc
+literal .htm
+literal .html
+literal .tex
+literal .txt
 
-compbrl .gif
-compbrl .jpg
-compbrl .png
-compbrl .wav
+literal .gif
+literal .jpg
+literal .png
+literal .wav
 
-compbrl .tar
-compbrl .zip
+literal .tar
+literal .zip
