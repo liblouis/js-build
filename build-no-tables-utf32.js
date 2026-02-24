@@ -59706,42 +59706,42 @@ function _getLogLevelFromEnvironment() {
     $11 = (_tolower($10)|0);
     switch ($11|0) {
     case 97:  {
-     HEAP32[387] = 0;
+     _lou_setLogLevel(0);
      break L1;
      break;
     }
     case 100:  {
-     HEAP32[387] = 10000;
+     _lou_setLogLevel(10000);
      break L1;
      break;
     }
     case 105:  {
-     HEAP32[387] = 20000;
+     _lou_setLogLevel(20000);
      break L1;
      break;
     }
     case 119:  {
-     HEAP32[387] = 30000;
+     _lou_setLogLevel(30000);
      break L1;
      break;
     }
     case 101:  {
-     HEAP32[387] = 40000;
+     _lou_setLogLevel(40000);
      break L1;
      break;
     }
     case 102:  {
-     HEAP32[387] = 50000;
+     _lou_setLogLevel(50000);
      break L1;
      break;
     }
     case 111:  {
-     HEAP32[387] = 60000;
+     _lou_setLogLevel(60000);
      break L1;
      break;
     }
     default: {
-     HEAP32[387] = 20000;
+     _lou_setLogLevel(20000);
      $12 = $0;
      HEAP32[$vararg_buffer>>2] = $12;
      __lou_logMessage(30000,10616,$vararg_buffer);
