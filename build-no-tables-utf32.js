@@ -9064,32 +9064,54 @@ function _compileString($0,$1,$2) {
 function __lou_compileTranslationRule($0,$1) {
  $0 = $0|0;
  $1 = $1|0;
- var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, label = 0, sp = 0;
+ var $10 = 0, $11 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
- $4 = sp;
- $2 = $0;
- $3 = $1;
- $5 = $2;
- _getTable($5,0,$4,0);
+ $5 = sp;
+ $3 = $0;
+ $4 = $1;
  $6 = $3;
- $7 = (_compileString($6,$4,0)|0);
- STACKTOP = sp;return ($7|0);
+ _getTable($6,0,$5,0);
+ $7 = HEAP32[$5>>2]|0;
+ $8 = ($7|0)!=(0|0);
+ if ($8) {
+  $9 = $4;
+  $10 = (_compileString($9,$5,0)|0);
+  $2 = $10;
+  $11 = $2;
+  STACKTOP = sp;return ($11|0);
+ } else {
+  $2 = 0;
+  $11 = $2;
+  STACKTOP = sp;return ($11|0);
+ }
+ return (0)|0;
 }
 function __lou_compileDisplayRule($0,$1) {
  $0 = $0|0;
  $1 = $1|0;
- var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, label = 0, sp = 0;
+ var $10 = 0, $11 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
- $4 = sp;
- $2 = $0;
- $3 = $1;
- $5 = $2;
- _getTable(0,$5,0,$4);
+ $5 = sp;
+ $3 = $0;
+ $4 = $1;
  $6 = $3;
- $7 = (_compileString($6,0,$4)|0);
- STACKTOP = sp;return ($7|0);
+ _getTable(0,$6,0,$5);
+ $7 = HEAP32[$5>>2]|0;
+ $8 = ($7|0)!=(0|0);
+ if ($8) {
+  $9 = $4;
+  $10 = (_compileString($9,0,$5)|0);
+  $2 = $10;
+  $11 = $2;
+  STACKTOP = sp;return ($11|0);
+ } else {
+  $2 = 0;
+  $11 = $2;
+  STACKTOP = sp;return ($11|0);
+ }
+ return (0)|0;
 }
 function _compileError($0,$1,$varargs) {
  $0 = $0|0;
