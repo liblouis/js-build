@@ -53368,6 +53368,19 @@ function _indexTablePath() {
   STACKTOP = sp;return;
  }
 }
+function _strcmp_($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $2 = $0;
+ $3 = $1;
+ $4 = $2;
+ $5 = $3;
+ $6 = (_strcmp($4,$5)|0);
+ STACKTOP = sp;return ($6|0);
+}
 function _list_conj($0,$1,$2,$3,$4) {
  $0 = $0|0;
  $1 = $1|0;
@@ -53788,6 +53801,16 @@ function _listDir($0,$1) {
  (_closedir($25)|0);
  $27 = $2;
  STACKTOP = sp;return ($27|0);
+}
+function _strdup_($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, $3 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ $3 = (___strdup($2)|0);
+ STACKTOP = sp;return ($3|0);
 }
 function _analyzeTable($0,$1) {
  $0 = $0|0;
@@ -54938,6 +54961,54 @@ function _parseLanguageTag($0) {
  }
  return (0)|0;
 }
+function _list_dup_($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, $3 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ $3 = (_list_dup($2)|0);
+ STACKTOP = sp;return ($3|0);
+}
+function _list_free_($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _list_free($2);
+ STACKTOP = sp;return;
+}
+function _feat_new($0,$1,$2,$3,$4) {
+ $0 = $0|0;
+ $1 = $1|0;
+ $2 = $2|0;
+ $3 = $3|0;
+ $4 = $4|0;
+ var $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 32|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(32|0);
+ $9 = sp;
+ $5 = $1;
+ $6 = $2;
+ $7 = $3;
+ $8 = $4;
+ $10 = $5;
+ HEAP32[$9>>2] = $10;
+ $11 = $6;
+ $12 = ((($9)) + 4|0);
+ HEAP32[$12>>2] = $11;
+ $13 = $7;
+ $14 = ((($9)) + 12|0);
+ HEAP32[$14>>2] = $13;
+ $15 = $8;
+ $16 = ((($9)) + 8|0);
+ HEAP32[$16>>2] = $15;
+ ;HEAP32[$0>>2]=HEAP32[$9>>2]|0;HEAP32[$0+4>>2]=HEAP32[$9+4>>2]|0;HEAP32[$0+8>>2]=HEAP32[$9+8>>2]|0;HEAP32[$0+12>>2]=HEAP32[$9+12>>2]|0;
+ STACKTOP = sp;return;
+}
 function _list_dup($0) {
  $0 = $0|0;
  var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $24 = 0, $25 = 0, $26 = 0, $27 = 0;
@@ -54997,123 +55068,78 @@ function _list_dup($0) {
  $38 = $1;
  STACKTOP = sp;return ($38|0);
 }
-function _feat_new($0,$1,$2,$3,$4) {
+function _feat_dup_($0) {
  $0 = $0|0;
- $1 = $1|0;
- $2 = $2|0;
- $3 = $3|0;
- $4 = $4|0;
- var $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
- sp = STACKTOP;
- STACKTOP = STACKTOP + 32|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(32|0);
- $9 = sp;
- $5 = $1;
- $6 = $2;
- $7 = $3;
- $8 = $4;
- $10 = $5;
- HEAP32[$9>>2] = $10;
- $11 = $6;
- $12 = ((($9)) + 4|0);
- HEAP32[$12>>2] = $11;
- $13 = $7;
- $14 = ((($9)) + 12|0);
- HEAP32[$14>>2] = $13;
- $15 = $8;
- $16 = ((($9)) + 8|0);
- HEAP32[$16>>2] = $15;
- ;HEAP32[$0>>2]=HEAP32[$9>>2]|0;HEAP32[$0+4>>2]=HEAP32[$9+4>>2]|0;HEAP32[$0+8>>2]=HEAP32[$9+8>>2]|0;HEAP32[$0+12>>2]=HEAP32[$9+12>>2]|0;
- STACKTOP = sp;return;
-}
-function _feat_dup($0) {
- $0 = $0|0;
- var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $24 = 0, $25 = 0, $26 = 0, $27 = 0;
- var $28 = 0, $29 = 0, $3 = 0, $30 = 0, $31 = 0, $32 = 0, $33 = 0, $34 = 0, $35 = 0, $36 = 0, $37 = 0, $38 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
- sp = STACKTOP;
- STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
- $2 = $0;
- $4 = $2;
- $5 = ($4|0)!=(0|0);
- if (!($5)) {
-  $1 = 0;
-  $38 = $1;
-  STACKTOP = sp;return ($38|0);
- }
- $6 = (_rpl_malloc(16)|0);
- $3 = $6;
- $7 = $2;
- $8 = HEAP32[$7>>2]|0;
- $9 = (___strdup($8)|0);
- $10 = $3;
- HEAP32[$10>>2] = $9;
- $11 = $2;
- $12 = ((($11)) + 12|0);
- $13 = HEAP32[$12>>2]|0;
- $14 = ($13|0)!=(0|0);
- $15 = $2;
- if ($14) {
-  $16 = ((($15)) + 12|0);
-  $17 = HEAP32[$16>>2]|0;
-  $18 = $2;
-  $19 = ((($18)) + 4|0);
-  $20 = HEAP32[$19>>2]|0;
-  $21 = (FUNCTION_TABLE_ii[$17 & 31]($20)|0);
-  $26 = $21;
- } else {
-  $22 = ((($15)) + 4|0);
-  $23 = HEAP32[$22>>2]|0;
-  $26 = $23;
- }
- $24 = $3;
- $25 = ((($24)) + 4|0);
- HEAP32[$25>>2] = $26;
- $27 = $2;
- $28 = ((($27)) + 8|0);
- $29 = HEAP32[$28>>2]|0;
- $30 = $3;
- $31 = ((($30)) + 8|0);
- HEAP32[$31>>2] = $29;
- $32 = $2;
- $33 = ((($32)) + 12|0);
- $34 = HEAP32[$33>>2]|0;
- $35 = $3;
- $36 = ((($35)) + 12|0);
- HEAP32[$36>>2] = $34;
- $37 = $3;
- $1 = $37;
- $38 = $1;
- STACKTOP = sp;return ($38|0);
-}
-function _feat_free($0) {
- $0 = $0|0;
- var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
+ var $1 = 0, $2 = 0, $3 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $1 = $0;
  $2 = $1;
- $3 = ($2|0)!=(0|0);
- if (!($3)) {
-  STACKTOP = sp;return;
- }
- $4 = $1;
- $5 = HEAP32[$4>>2]|0;
- _rpl_free($5);
- $6 = $1;
- $7 = ((($6)) + 8|0);
- $8 = HEAP32[$7>>2]|0;
- $9 = ($8|0)!=(0|0);
- if ($9) {
-  $10 = $1;
-  $11 = ((($10)) + 8|0);
-  $12 = HEAP32[$11>>2]|0;
-  $13 = $1;
+ $3 = (_feat_dup($2)|0);
+ STACKTOP = sp;return ($3|0);
+}
+function _feat_free_($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _feat_free($2);
+ STACKTOP = sp;return;
+}
+function _cmpFeatures_($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $2 = $0;
+ $3 = $1;
+ $4 = $2;
+ $5 = $3;
+ $6 = (_cmpFeatures($4,$5)|0);
+ STACKTOP = sp;return ($6|0);
+}
+function _list_sort($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0;
+ var $8 = 0, $9 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $2 = $0;
+ $3 = $1;
+ $4 = 0;
+ $6 = $2;
+ $5 = $6;
+ while(1) {
+  $7 = $5;
+  $8 = ($7|0)!=(0|0);
+  if (!($8)) {
+   break;
+  }
+  $9 = $4;
+  $10 = $5;
+  $11 = HEAP32[$10>>2]|0;
+  $12 = $3;
+  $13 = $5;
   $14 = ((($13)) + 4|0);
   $15 = HEAP32[$14>>2]|0;
-  FUNCTION_TABLE_vi[$12 & 31]($15);
+  $16 = (_list_conj($9,$11,$12,0,$15)|0);
+  $4 = $16;
+  $17 = $5;
+  $18 = ((($17)) + 4|0);
+  HEAP32[$18>>2] = 0;
+  $19 = $5;
+  $20 = ((($19)) + 12|0);
+  $21 = HEAP32[$20>>2]|0;
+  $5 = $21;
  }
- $16 = $1;
- _rpl_free($16);
- STACKTOP = sp;return;
+ $22 = $2;
+ _list_free($22);
+ $23 = $4;
+ STACKTOP = sp;return ($23|0);
 }
 function _cmpFeatures($0,$1) {
  $0 = $0|0;
@@ -55209,45 +55235,95 @@ function _cmpFeatures($0,$1) {
  $54 = $2;
  STACKTOP = sp;return ($54|0);
 }
-function _list_sort($0,$1) {
+function _feat_free($0) {
  $0 = $0|0;
- $1 = $1|0;
- var $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0;
- var $8 = 0, $9 = 0, label = 0, sp = 0;
+ var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ $3 = ($2|0)!=(0|0);
+ if (!($3)) {
+  STACKTOP = sp;return;
+ }
+ $4 = $1;
+ $5 = HEAP32[$4>>2]|0;
+ _rpl_free($5);
+ $6 = $1;
+ $7 = ((($6)) + 8|0);
+ $8 = HEAP32[$7>>2]|0;
+ $9 = ($8|0)!=(0|0);
+ if ($9) {
+  $10 = $1;
+  $11 = ((($10)) + 8|0);
+  $12 = HEAP32[$11>>2]|0;
+  $13 = $1;
+  $14 = ((($13)) + 4|0);
+  $15 = HEAP32[$14>>2]|0;
+  FUNCTION_TABLE_vi[$12 & 31]($15);
+ }
+ $16 = $1;
+ _rpl_free($16);
+ STACKTOP = sp;return;
+}
+function _feat_dup($0) {
+ $0 = $0|0;
+ var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $24 = 0, $25 = 0, $26 = 0, $27 = 0;
+ var $28 = 0, $29 = 0, $3 = 0, $30 = 0, $31 = 0, $32 = 0, $33 = 0, $34 = 0, $35 = 0, $36 = 0, $37 = 0, $38 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
  $2 = $0;
- $3 = $1;
- $4 = 0;
- $6 = $2;
- $5 = $6;
- while(1) {
-  $7 = $5;
-  $8 = ($7|0)!=(0|0);
-  if (!($8)) {
-   break;
-  }
-  $9 = $4;
-  $10 = $5;
-  $11 = HEAP32[$10>>2]|0;
-  $12 = $3;
-  $13 = $5;
-  $14 = ((($13)) + 4|0);
-  $15 = HEAP32[$14>>2]|0;
-  $16 = (_list_conj($9,$11,$12,0,$15)|0);
-  $4 = $16;
-  $17 = $5;
-  $18 = ((($17)) + 4|0);
-  HEAP32[$18>>2] = 0;
-  $19 = $5;
-  $20 = ((($19)) + 12|0);
-  $21 = HEAP32[$20>>2]|0;
-  $5 = $21;
+ $4 = $2;
+ $5 = ($4|0)!=(0|0);
+ if (!($5)) {
+  $1 = 0;
+  $38 = $1;
+  STACKTOP = sp;return ($38|0);
  }
- $22 = $2;
- _list_free($22);
- $23 = $4;
- STACKTOP = sp;return ($23|0);
+ $6 = (_rpl_malloc(16)|0);
+ $3 = $6;
+ $7 = $2;
+ $8 = HEAP32[$7>>2]|0;
+ $9 = (___strdup($8)|0);
+ $10 = $3;
+ HEAP32[$10>>2] = $9;
+ $11 = $2;
+ $12 = ((($11)) + 12|0);
+ $13 = HEAP32[$12>>2]|0;
+ $14 = ($13|0)!=(0|0);
+ $15 = $2;
+ if ($14) {
+  $16 = ((($15)) + 12|0);
+  $17 = HEAP32[$16>>2]|0;
+  $18 = $2;
+  $19 = ((($18)) + 4|0);
+  $20 = HEAP32[$19>>2]|0;
+  $21 = (FUNCTION_TABLE_ii[$17 & 31]($20)|0);
+  $26 = $21;
+ } else {
+  $22 = ((($15)) + 4|0);
+  $23 = HEAP32[$22>>2]|0;
+  $26 = $23;
+ }
+ $24 = $3;
+ $25 = ((($24)) + 4|0);
+ HEAP32[$25>>2] = $26;
+ $27 = $2;
+ $28 = ((($27)) + 8|0);
+ $29 = HEAP32[$28>>2]|0;
+ $30 = $3;
+ $31 = ((($30)) + 8|0);
+ HEAP32[$31>>2] = $29;
+ $32 = $2;
+ $33 = ((($32)) + 12|0);
+ $34 = HEAP32[$33>>2]|0;
+ $35 = $3;
+ $36 = ((($35)) + 12|0);
+ HEAP32[$36>>2] = $34;
+ $37 = $3;
+ $1 = $37;
+ $38 = $1;
+ STACKTOP = sp;return ($38|0);
 }
 function _isAlphaNum($0) {
  $0 = $0|0;
@@ -56001,6 +56077,19 @@ function _matchFeatureLists($0,$1,$2) {
  $183 = $10;
  STACKTOP = sp;return ($183|0);
 }
+function _cmpMatches_($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $2 = $0;
+ $3 = $1;
+ $4 = $2;
+ $5 = $3;
+ $6 = (_cmpMatches($4,$5)|0);
+ STACKTOP = sp;return ($6|0);
+}
 function _cmpMatches($0,$1) {
  $0 = $0|0;
  $1 = $1|0;
@@ -56161,6 +56250,29 @@ function _matchLanguageTags($0,$1) {
   STACKTOP = sp;return ($57|0);
  }
  return (0)|0;
+}
+function _cmpKeys_($0,$1) {
+ $0 = $0|0;
+ $1 = $1|0;
+ var $2 = 0, $3 = 0, $4 = 0, $5 = 0, $6 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $2 = $0;
+ $3 = $1;
+ $4 = $2;
+ $5 = $3;
+ $6 = (_cmpKeys($4,$5)|0);
+ STACKTOP = sp;return ($6|0);
+}
+function _meta_free_($0) {
+ $0 = $0|0;
+ var $1 = 0, $2 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $2 = $1;
+ _meta_free($2);
+ STACKTOP = sp;return;
 }
 function _meta_free($0) {
  $0 = $0|0;
@@ -70532,14 +70644,14 @@ function b4(p0) {
 }
 
 // EMSCRIPTEN_END_FUNCS
-var FUNCTION_TABLE_ii = [b0,b0,jsCall_ii_0,b0,b0,b0,___stdio_close,b0,b0,b0,b0,b0,b0,b0,b0,b0,b0,___strdup,_list_dup,b0,_feat_dup,b0,b0,b0,b0,b0,b0,b0,b0
+var FUNCTION_TABLE_ii = [b0,b0,jsCall_ii_0,b0,b0,b0,___stdio_close,b0,b0,b0,b0,b0,b0,b0,b0,b0,b0,_strdup_,_list_dup_,b0,_feat_dup_,b0,b0,b0,b0,b0,b0,b0,b0
 ,b0,b0,b0];
 var FUNCTION_TABLE_iiii = [b1,b1,jsCall_iiii_0,b1,b1,b1,b1,___stdio_write,___stdio_seek,___stdout_write,_sn_write,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,b1,___stdio_read,b1,b1
 ,b1,b1,b1];
 var FUNCTION_TABLE_vii = [b2,b2,jsCall_vii_0,b2,b2,_defaultLogCallback,b2,b2];
-var FUNCTION_TABLE_iii = [b3,b3,jsCall_iii_0,b3,__lou_defaultTableResolver,b3,b3,b3,b3,b3,b3,_allocStringBuffer,_allocStringBuffer_378,b3,_cmpMatches,b3,_strcmp,b3,b3,b3,b3,b3,_cmpFeatures,_cmpKeys,b3,b3,b3,b3,b3
+var FUNCTION_TABLE_iii = [b3,b3,jsCall_iii_0,b3,__lou_defaultTableResolver,b3,b3,b3,b3,b3,b3,_allocStringBuffer,_allocStringBuffer_378,b3,_cmpMatches_,b3,_strcmp_,b3,b3,b3,b3,b3,_cmpFeatures_,_cmpKeys_,b3,b3,b3,b3,b3
 ,b3,b3,b3];
-var FUNCTION_TABLE_vi = [b4,b4,jsCall_vi_0,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,_meta_free,b4,_rpl_free,b4,b4,b4,_list_free,b4,_feat_free,b4,b4,_cleanup,_cleanup_340,b4,b4,b4
+var FUNCTION_TABLE_vi = [b4,b4,jsCall_vi_0,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,_meta_free_,b4,_rpl_free,b4,b4,b4,_list_free_,b4,_feat_free_,b4,b4,_cleanup,_cleanup_340,b4,b4,b4
 ,b4,b4,b4];
 
   return { __lou_getDisplayTable: __lou_getDisplayTable, _bitshift64Lshr: _bitshift64Lshr, _lou_setLogLevel: _lou_setLogLevel, _lou_logFile: _lou_logFile, _lou_translate: _lou_translate, _lou_logPrint: _lou_logPrint, __lou_showAttributes: __lou_showAttributes, __lou_pattern_compile: __lou_pattern_compile, __lou_showDots: __lou_showDots, _sbrk: _sbrk, _memcpy: _memcpy, __lou_resolveTable: __lou_resolveTable, ___udivmoddi4: ___udivmoddi4, _lou_freeEmphClasses: _lou_freeEmphClasses, __lou_translate: __lou_translate, _free: _free, __lou_getCharForDots: __lou_getCharForDots, _lou_compileString: _lou_compileString, _lou_charToDots: _lou_charToDots, ___uremdi3: ___uremdi3, _lou_listTables: _lou_listTables, __lou_showString: __lou_showString, _lou_hyphenate: _lou_hyphenate, _lou_readCharFromFile: _lou_readCharFromFile, __lou_pattern_reverse: __lou_pattern_reverse, __lou_logMessage: __lou_logMessage, __lou_resetPassVariables: __lou_resetPassVariables, _llvm_cttz_i32: _llvm_cttz_i32, __lou_allocMem: __lou_allocMem, _lou_free: _lou_free, __lou_defaultTableResolver: __lou_defaultTableResolver, _lou_freeTableFile: _lou_freeTableFile, _lou_backTranslate: _lou_backTranslate, __lou_freeTableIndex: __lou_freeTableIndex, __lou_charToFallbackDots: __lou_charToFallbackDots, __lou_extParseDots: __lou_extParseDots, __lou_outOfMemory: __lou_outOfMemory, _lou_findTables: _lou_findTables, _lou_backTranslateString: _lou_backTranslateString, _lou_registerTableResolver: _lou_registerTableResolver, __lou_findOpcodeNumber: __lou_findOpcodeNumber, _lou_indexTables: _lou_indexTables, _lou_getEmphClasses: _lou_getEmphClasses, __lou_stringHash: __lou_stringHash, _memset: _memset, _lou_translatePrehyphenated: _lou_translatePrehyphenated, _lou_setDataPath: _lou_setDataPath, _i64Subtract: _i64Subtract, _lou_registerLogCallback: _lou_registerLogCallback, _lou_findTable: _lou_findTable, __lou_backTranslate: __lou_backTranslate, __lou_pattern_check: __lou_pattern_check, _lou_translateString: _lou_translateString, _lou_charSize: _lou_charSize, __lou_findOpcodeName: __lou_findOpcodeName, __lou_isValidMode: __lou_isValidMode, _malloc: _malloc, __lou_extParseChars: __lou_extParseChars, _lou_getTableInfo: _lou_getTableInfo, __lou_getALine: __lou_getALine, _lou_version: _lou_version, ___udivdi3: ___udivdi3, _lou_freeTableFiles: _lou_freeTableFiles, __lou_getTablePath: __lou_getTablePath, __lou_getDotsForChar: __lou_getDotsForChar, __lou_charHash: __lou_charHash, __lou_getTranslationTable: __lou_getTranslationTable, _fflush: _fflush, _lou_logEnd: _lou_logEnd, __lou_compileDisplayRule: __lou_compileDisplayRule, _lou_getDataPath: _lou_getDataPath, _bitshift64Shl: _bitshift64Shl, __lou_handlePassVariableAction: __lou_handlePassVariableAction, _lou_getTypeformForEmphClass: _lou_getTypeformForEmphClass, _i64Add: _i64Add, _pthread_self: _pthread_self, __lou_handlePassVariableTest: __lou_handlePassVariableTest, __lou_compileTranslationRule: __lou_compileTranslationRule, __lou_getTable: __lou_getTable, __lou_unknownDots: __lou_unknownDots, ___errno_location: ___errno_location, _lou_checkTable: _lou_checkTable, __lou_logWidecharBuf: __lou_logWidecharBuf, _lou_freeTableInfo: _lou_freeTableInfo, _memmove: _memmove, _defaultLogCallback: _defaultLogCallback, _lou_getTable: _lou_getTable, _lou_dotsToChar: _lou_dotsToChar, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_vii: dynCall_vii, dynCall_iii: dynCall_iii, dynCall_vi: dynCall_vi };
